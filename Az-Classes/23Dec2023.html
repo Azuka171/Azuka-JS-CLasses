@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="./23Dec2023.html">23Dec2023</a>
+    <a href="./30Dec2023.html">30Dec2023</a>
+    <a href="./31Dec2023.html">31Dec2023</a>
+    <a href="./1Jan2024.html">1Jan2024</a>
+    <div class="username">User's name</div>
+    <script>
+        const my_array1 = [20, 4, 5, 90, 100];
+        my_array1.sort(function(a,b){return a - b})
+        console.log(my_array1);
+        my_array1.sort(function(a,b){return  b - a})
+        console.log(my_array1);
+        my_array1.sort();
+        console.log(my_array1);
+        my_array1.sort(function(){return 0.5 - Math.random()});
+        console.log('random arrangement', my_array1);
+        var i = 4
+        console.log( Math.floor(Math.random() * (i+1)) );
+
+
+        var max_no = 7;
+        var min_no = 3;
+        var diff = (max_no - min_no) + 1;
+        var diff_rando = Math.floor(Math.random() * diff);
+        var rando = diff_rando + min_no;
+        console.log('random number-->',rando)
+
+        function generateRandomNumbers(min_no, max_no){
+            let diff = (max_no - min_no) + 1;
+            let diff_rando = Math.floor(Math.random() * diff);
+            let rando = diff_rando + min_no;
+            console.log('random number-->',rando)
+            return rando
+        }
+
+
+        let max_mem = Math.min.apply(null, my_array1);
+        console.log('max member-->',max_mem)
+
+        let text ='Azuka'
+        // text = text + ' Gideon';
+        text += ' Gideon';
+        console.log(text);
+
+        for (let i = 0; i < 5; i++) {
+            text += "The number is " + i + "<br>";
+            console.log(text)
+        }
+    </script>
+    <script src="./change_users_name.js"></script>
+</body>
+</html>

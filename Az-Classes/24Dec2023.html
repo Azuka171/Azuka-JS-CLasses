@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for (let e = 0; e<4; e++){
+            console.log('i ran', e)
+        }
+
+        const cars = ['venza', 'parado', 'camry', 'g-wagon'];
+        const student = ['Azuka', 'Gideon', 60, 'graduate', 'engineer', 'reading'];
+        const student_new = {firstname: 'Azuka', lastname: 'Gideon', Age: 60, education_level: 'Graduate', profession: 'engineer', hobbies: 'reading'}
+
+        console.log(student[0]);
+        console.log(student_new.profession);
+
+        for(let item in student_new){
+            console.log(student_new[item])
+        }
+        for (car in cars){
+            console.log(cars[car])
+        }
+
+        cars.forEach(
+            function(value){
+                console.log('inside-foreach-->', value)
+            }
+        )
+        for(let item of student){
+            console.log('inside for of', item)
+        }
+
+
+        const cars_ = ["BMW", "Volvo", "Mini"];
+
+        let text = "";
+        for (let x of cars_) {
+            text += " ";
+            text += x;
+            console.log('value of text -->',text)
+        }
+        console.log('value of text outside loop -->',text);
+
+
+        let i = 0
+        while(i<2){
+            console.log('count:', i);
+            i++
+        }
+        for(let i=0; i<12; i++){
+            if(i===4){break;}
+            if(i===4||i===6||i===8){continue;}
+            console.log('for loop count:', i);
+            
+        }
+    </script>
+</body>
+</html>

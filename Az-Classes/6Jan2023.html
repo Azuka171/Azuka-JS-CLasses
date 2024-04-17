@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="email_submission" onsubmit="return validateForm()">
+        <input type="email" name="user_email" id="" placeholder="email@gmail.com">
+        <div class="error">not a valid email</div><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        function validateForm(){
+            let email_form = document.forms['email_submission']
+            console.log(email_form['user_email'].value)
+            if (email_form['user_email'].value ==='felix@gmail.com') {
+                return true 
+            }
+
+            document.getElementsByClassName('error')[0].style.display = 'block'
+            return false
+        }
+    </script>
+    <style>
+        div.error{
+            font-size: small;
+            color: red;
+            display: none;
+        }
+    </style>
+</body>
+</html>

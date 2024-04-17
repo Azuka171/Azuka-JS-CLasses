@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="add-box">
+            <input type="text" id="add_input">
+            <button onclick="add_task()">Add</button>
+        </div>
+        <div class="tasks-container" id="tasks_container">
+            <!-- code injects tasks here -->
+            <!-- <div class="task">
+                <div class="title">Task</div>
+                <button>delete</button>
+            </div> -->
+        </div>
+    </div>
+    <style>
+        .container{
+            width: 300px;
+        }
+        .add-box input{
+            width: 80%;
+        }
+        .task{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+    </style>
+    <script>
+        const tasks = ['clean house', 'debug code', 'arrange clothing'];
+        function update_ui(){
+            let document.getElementById('tasks_container').
+            for (const task of tasks) {
+                // create container
+                let task_container = document.createElement('div');
+                task_container.classList.add('task');
+
+                // create container for task name
+                let task_title = document.createElement('div');
+                task_title.classList.add('title');
+                task_title.innerText = task;
+                
+                let delete_btn = document.createElement('button');
+                delete_btn.innerText = 'delete'
+                
+                // append elements to the task container
+                task_container.appendChild(task_title);
+                task_container.appendChild(delete_btn);
+
+                // append task container to the main container
+                document.getElementById('tasks_container').appendChild(task_container)
+            }
+        }
+        update_ui()
+
+        function add_task(){
+            let new_task_title = document.getElementById('add_input').value;
+            tasks.push(new_task_title);
+            console.log(tasks);
+            update_ui()
+        }
+    </script>
+</body>
+</html>

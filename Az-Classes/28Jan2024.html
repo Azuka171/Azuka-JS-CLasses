@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="sign_up_form" onsubmit="return validate_form()">
+        <div class="col-2">
+            <div class="something">
+                <label for="fname">Name</label>
+                <input type="text" id="fname">
+            </div>
+            <div>
+                <label for="">Name</label>
+                <input type="text">
+            </div>
+        </div>
+        <div>
+            <label for="">Name</label>
+            <input type="text" name="email">
+            <!-- <input type="email" name="email"> -->
+        </div>
+        <div class="col-2">
+            <div class="something">
+                <label for="fname">Password</label>
+                <input type="password" id="password">
+            </div>
+            <div>
+                <label for="">Confirm Password</label>
+                <input type="password" name="confirm_password">
+            </div>
+        </div>
+        <input type="submit">
+    </form>
+
+    <style>
+        .col-2{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        input{
+            width: 100%;
+        }
+        input.error{
+            border: 1px red solid
+        }
+        div.error-msg{
+            color: red
+        }
+    </style>
+    <script>
+        function validate_form(){
+            let signup_form = document.forms["sign_up_form"];
+            let fname = signup_form['fname'] ;
+            let email = signup_form['email'];
+            let pass = signup_form['password'];
+            console.log(email.value);
+            // let regExp_email_test =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            // let test_for_at_result = regExp_email_test.test(email.value);
+            // console.log('result of regExp test', test_for_at_result);
+            let regExp_password_test =  /^(?=.*[a-z])(?=.*[A-Z])/
+            let password_test_result = regExp_password_test.test(pass.value);
+            console.log('result of password regExp test', password_test_result);
+
+
+            // console.log(fname);
+            // if (fname.value==='') {
+            //     let parent_div = fname.parentNode;
+            //     let error_div = document.createElement('div');
+            //     error_div.className = 'error-msg';
+            //     error_div.innerText = 'this field cannot be blank'
+                
+            //     parent_div.appendChild(error_div)
+            //     fname.classList.add('error');
+            //     console.log(parent_div)
+            // }
+            return false
+            // return true
+        }
+
+    </script>
+</body>
+</html>

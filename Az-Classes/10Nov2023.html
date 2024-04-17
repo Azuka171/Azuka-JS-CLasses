@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myFunction(){
+            let user = prompt('are you sure you want to continue?').toLowerCase();
+            console.log(user);
+            if (user === 'yes'){
+                alert('thank you, you can now continue');
+            }
+            else{
+                alert('sorry you donot have access');
+            }
+            document.getElementById("demo").innerHTML ="my first javascrips";
+        }
+        myFunction();
+    </script>
+</body>
+</html>

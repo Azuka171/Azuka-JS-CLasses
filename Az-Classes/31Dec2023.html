@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="./23Dec2023.html">23Dec2023</a>
+    <a href="./30Dec2023.html">30Dec2023</a>
+    <a href="./31Dec2023.html">31Dec2023</a>
+    <a href="./1Jan2024.html">1Jan2024</a>
+    <div class="username">User's name</div>
+    <p id="paragraph-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <textarea name="" id="customer-input" cols="30" rows="10"></textarea>
+    <button onclick="get_cutomer_input()">Submit Text</button>
+    <script>
+        let paragraph_1 = document.getElementById('paragraph-1');
+        console.log(paragraph_1); 
+        let paragraphs = document.getElementsByTagName('p');
+        console.log(paragraphs[1]);
+        paragraphs[3].innerHTML = 'Azuka';
+        paragraph_1.innerHTML = "Azuka";
+        function get_cutomer_input(){
+            let customer_input = document.getElementById('customer-input').value;
+            paragraphs[2].innerHTML = customer_input;
+            console.log(customer_input)
+        }
+    </script>
+
+
+
+  
+    <script src="./change_users_name.js"></script>
+</body>
+</html>

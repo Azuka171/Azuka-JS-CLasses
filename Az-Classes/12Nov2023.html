@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="" alt="" class="circle-img">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, non? Eveniet quam totam culpa sed delectus aut aspernatur necessitatibus libero ducimus nostrum quos enim iure sequi velit quod, dicta temporibus!
+    <div class="item"></div>
+    <style>
+      .first-box{
+        border-top: 5px solid black
+      }
+      .circle-img{
+        border-radius: 100%;
+      }
+      .item{
+        width: 1px;
+        border-top: 50px solid #000;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+      }
+    </style>
+    <script>
+      // Write a function to check if a string contains a certain substring.
+      function containsItem() {
+        let index = "Azuka".indexOf("Az");
+        if (index !== -1) {
+          console.log("item is present");
+        } else {
+          console.log("item is not present");
+        }
+      }
+      containsItem();
+
+      function containsItem_Dynamic(host, searchItem) {
+        let index = host.indexOf(searchItem);
+        if (index !== -1) {
+          console.log(`${searchItem} is present in ${host}`);
+        } else {
+          console.log(`${searchItem} is not present in ${host}`);
+        }
+      }
+      containsItem_Dynamic("Azuka", "Az");
+      containsItem_Dynamic("Jideonwo Felix", "Felix");
+      containsItem_Dynamic("Jideonwo Felix", "Felix");
+
+      // Write a function to convert a string to uppercase or lowercase.
+      // regular function
+      // function convertCase (){
+
+      // }
+      // arrow function
+      const convertCase = (string, Case) => {
+        if (Case === "lowercase") {
+          console.log("converted string--->", string.toLowerCase());
+        } else {
+          console.log("converted string--->", string.toUpperCase());
+        }
+      };
+      convertCase("Azuka", "lowercase");
+      convertCase("felix", "uppercase");
+
+      // const ReplaceItem = (string_sentence, replaced, replacement) => {
+      //   // let replaced = '/' + word_to_be_replaced +'/i'
+      //   // let replaced = new RegExp(word_to_be_replaced, "i");
+      //   // console.log('regEx-->', replaced)
+      //   let new_sentence = string_sentence.replace(replaced, replacement);
+      //   console.log("replaced sentence-->", new_sentence);
+      // };
+      const ReplaceItem = (string_sentence, replaced, replacement) => {
+        let new_sentence = string_sentence.replace(replaced, replacement);
+        console.log("replaced sentence-->", new_sentence);
+      };
+      ReplaceItem("Azuka is going to work on Monday", /AZUKA/i, "Felix");
+      ReplaceItem("Azuka is going to work on Monday", "Monday", "Saturday");
+
+      let text = "a,b,c,d,e,f";
+      let arr2 = text.split(",");
+      // let arr = [1, 2, 3, 4, 5];
+      console.log(arr2);
+    </script>
+  </body>
+</html>

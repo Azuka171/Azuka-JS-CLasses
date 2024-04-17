@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Names_of_Students = ["Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "George", "Hazel", "Irene", "John", "Kate", "Leo", "Mary", "Neil", "Olivia", "Paul", "Quinn", "Rose", "Sam", "Tom"];
+
+        function extract_section(original_array, start_index, length_of_extraction){
+            let end_index = start_index + length_of_extraction
+            let new_array = original_array.slice(start_index, end_index);
+            console.log('original array length--->', original_array.length, 'new array length--->', new_array.length);
+            // console.log(new_array);
+            return new_array;
+        }
+        let delete_ArrayMember = (array, member)=>{
+            console.log(' Member in focus-------------->', member);
+            let member_index = array.indexOf(member);
+            // console.log('member_index--->', member_index);
+            if(member_index !== -1){
+                console.log(' before deleteting--->', array);
+                array.splice(member_index, 1);
+                console.log(' after deleteting--->', array);
+            }
+            else{
+                console.log(`Oops! ${member} was not found in the array`);
+                console.log('unchanged array--->', array);
+            }
+        }
+        let add_multiple_ArrayMembers = (array, index, ...members)=>{
+            console.log(' Member in focus-------------->', ...members);
+            console.log(' before adding--->', array);
+            array.splice(index, 0, ...members);
+            console.log(' after adding--->', array);
+        }
+
+        let calcTotal = (a, b)=>{
+            return a + b
+        }
+        let calcTotal2 = (a, b)=>{
+            a + b
+        }
+
+        let total = calcTotal(1, 4);
+        let total2 = calcTotal2(1, 4);
+
+        let Array_Extraction1 = extract_section(Names_of_Students, 5, 6);
+        let Array_Extraction2 = extract_section(Names_of_Students, 2, 7);
+        let Array_Extraction3 = extract_section(Names_of_Students, 5, 3);
+        let Array_Extraction4 = extract_section(Names_of_Students, 0, 1);
+
+        delete_ArrayMember(Names_of_Students, 'Bob');
+        delete_ArrayMember(Names_of_Students, 'Neil');
+        delete_ArrayMember(Names_of_Students, 'Bob');
+
+
+        add_multiple_ArrayMembers(Names_of_Students, 2, 'Bob', 'Neil', 'Neil');
+
+
+        // console.log(total);
+        // console.log(total2);
+    </script>
+</body>
+</html>
