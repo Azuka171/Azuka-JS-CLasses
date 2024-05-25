@@ -8,40 +8,40 @@ const products = [
     {
         id: 2,
         name: 'Suprise Package ',
-        img: '<img src="./images/ballon.jpeg">',
+        img: './images/ballon.jpeg',
         dsc: ' A fantastic wrist watch, does its functions with near accuracy. This H11 Ultra Plus (H11 Ultra+) Series 8 smart watch is an excellent wearable smart device or smart watch, so much different from many smart watches and upgraded with abilities more superior and long lasting than the other smart watches you have purchased and seen.'
     },
      {
         id: 3,
         name: 'Decoration',
-        img: '<img src="./images/dE1.jpeg">',
+        img: './images/dE1.jpeg',
         dsc: 'Some Ladies like their sunglasses having big frames. It is a form of fashion and actually protects the eyes completely, not only from rays of the sun also from wind.This is one of those Designer Luxury Big Frame sunglasses with metal material and very comfortable to wear daily. It gives you a pretty look.'
      },
     {
        id: 4,
        name: 'Suprise Package',
-       img: '<img src="./images/dE2s.jpeg">',
+       img: './images/dE2s.jpeg',
        dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
     },
     {
        id: 5,
        name: 'Traditional Dressing',
-       img: '<img src="./images/make-up.jpg">',
+       img: './images/make-up.jpg',
        dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
     },
     {  id: 6,
        name: 'Cake',
-       img: ' <img src="./images/cakep1.jpeg">',
+       img: ' ./images/cakep1.jpeg',
        dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
     },
     {  id: 7,
        name: 'Castle Cake',
-       img: ' <img src="./images/castle1.jpeg">',
+       img: ' ./images/castle1.jpeg',
        dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
     },
     {  id: 8,
        name: 'Small Chops',
-       img: '<img src="./images/dEs1.jpeg">',
+       img: './images/dEs1.jpeg',
        dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
     },
 
