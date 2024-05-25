@@ -373,6 +373,7 @@ const video_content = `<div class="video-grid-section">
 <video src="./videos/video new2.mp4" controls play loop muted></video>
 </div>
 <div class="empire"><a href="contact-us.html">Book now</a></div>`
+const cart_content = ``
 
 const contents_container = document.getElementsByTagName('main')[0];
 contents_container.innerHTML = index_content
@@ -403,4 +404,10 @@ document.getElementById('video_link').addEventListener('click', (event)=>{
    contents_container.innerHTML = video_content
     }
 )
+document.getElementById('cart_link').addEventListener('click', (event)=>{
+    event.preventDefault()
+   contents_container.innerHTML = cart_content
+    }
+)
+
 

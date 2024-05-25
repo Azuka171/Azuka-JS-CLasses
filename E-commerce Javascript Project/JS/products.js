@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         name: 'Wedding gown ',
-        img: '<img src="./images/wedding picture.jpg">',
+        img: './images/wedding picture.jpg',
         dsc: 'Promote hair growth with the rich formula of the Kirkland Signature Minoxidil 5% treatment made for men. Kirkland Signature Minoxodil topical Aerosol 5% is for men who have a general thinning of hair on the top of the scalp. Minoxidil has been show to regrow hair in men with low to moderate hair loss.Treat thinning hair and balding with this Kirkland hair loss treatment.Promote hair growth with the rich formula of the Kirkland Signature Minoxidil 5% treatment made for men. The active ingredient of this Kirkland extra strength treatment is 5% Minoxidil that nourishes the hair follicle to facilitate the hair growth process. As believed by the makers, this Kirkland hair loss treatment takes about 2 - 4 months time for effective results to start showing. Just 1 ml of the Kirkland Signature Minoxidil 5% treatment has to be applied twice daily to give you the best results possible. Treat thinning hair and balding with this Kirkland hair loss treatment.'
     },
     {
@@ -60,12 +60,17 @@ export function updateUI(){
         const product_name = document.createElement('div');
         product_name.innerText = product.name;
         const view_btn = document.createElement('button');
-        view_btn.innerText = "view";
+        view_btn.innerText = 'More Details';
         view_btn.addEventListener("click",  ()=>openModal(product))
-
+        const book_btn = document.createElement('button');
+        book_btn.innerText = 'Book Now'
+        book_btn.classList = 'btn'
+       
+        book_btn.addEventListener("click",  ()=>openModal(product))
         product_box.appendChild(img);
         product_box.appendChild(product_name);
         product_box.appendChild(view_btn);
+        product_box.appendChild(book_btn);
 
         product_grid.appendChild(product_box);
     })
@@ -77,6 +82,7 @@ function openModal(product_obj){
     modal.getElementsByClassName('product_dsc')[0].innerHTML = product_obj.dsc
     modal.querySelector('img').src = product_obj.img
     modal.style.display = 'flex'
+
 }
 function closeModal(){
     const modal = document.getElementsByClassName('modal_box')[0]
