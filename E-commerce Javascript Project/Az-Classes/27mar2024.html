@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return handlesubmit(event)">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required onkeyup="check_pass(event)">
+        <input type="submit" value="Login">
+        <div class="validator-group">
+            <div id="up">Uppercase</div>
+            <div id="low">Lowercase</div>
+            <div id="num">number</div>
+            <div id="sp">Special Character</div>
+            <div id="atleast">At least 8 characters</div>
+        </div>
+
+        <style>
+            .validator-group{
+                display: flex;
+                gap: 10px;
+            }
+        </style>
+    
+    </form>
+    <script>
+        const handlesubmit = (event)=>{
+            event.preventDefault()
+            let username = event.target['username']
+            username.setCustomValidity('Azuka is the Boss!!')
+            console.log(username);
+            // return true;
+        }
+
+        function check_pass(event){
+            let password = event.target.value
+            let regEx_lower_alpha = /^(?=.*[a-z])/.test(password);
+            let regEx_upper_alpha = /^(?=.*[A-Z])/.test(password);
+            let regEx_num = /^(?=.*\d)/.test(password);
+            let regEx_special = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\/-])/.test(password);
+            let regEx_length = password.length > 8;
+            console.log(password.value)
+            if (regEx_upper_alpha) {
+                document.getElementById('up').style.backgroundColor = 'green'
+            }else{
+                document.getElementById('up').style.backgroundColor = "#ffffff00"
+            }
+            if (regEx_lower_alpha) {
+                document.getElementById('low').style.backgroundColor = 'green'
+            }else{
+                document.getElementById('low').style.backgroundColor = "#ffffff00"
+            }
+            if (regEx_num) {
+                document.getElementById('num').style.backgroundColor = 'green'
+            }else{
+                document.getElementById('num').style.backgroundColor = "#ffffff00"
+            }
+            if (regEx_special) {
+                document.getElementById('sp').style.backgroundColor = 'green'
+            }else{
+                document.getElementById('sp').style.backgroundColor = "#ffffff00"
+            }
+            if (regEx_length) {
+                document.getElementById('atleast').style.backgroundColor = 'green'
+            }else{
+                document.getElementById('atleast').style.backgroundColor = "#ffffff00"
+            }
+        }
+    </script>
+</body>
+</html>

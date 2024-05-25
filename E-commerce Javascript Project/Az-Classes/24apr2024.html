@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+        const squareList = (arr)=>{
+            const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+            return squaredIntegers;
+        }
+        const squaredIntegers = squareList(realNumberArray);
+        console.log(squaredIntegers); 
+
+        // Use the Rest Operator with Function Parameters
+        // Example
+
+        // const sum = ( function (){
+        //     return function sum(...args){
+        //       return args.reduce((a, b) => a + b, 0);
+        //     };
+        //   })();
+        //  console.log(sum(1 , 2, 3, 4));
+
+
+        function sum(a, b){
+            return a+b;
+        }
+
+        function sumVariadicFunction(a, b, ...c){
+            console.log('a-->', a)
+            console.log('b-->', b)
+            console.log('c-->', c)
+        } 
+        sumVariadicFunction(1,2,3,4,5,6)
+
+        const sum_of_nums = sum(1,2)
+    </script>
+    <script src="./module-test.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="email_submission" onsubmit="return validateForm()">
+        <input type="email" name="user_email" id="" placeholder="email@gmail.com">
+        <div class="error2">not a valid email</div><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        function validateForm(){
+            let email_form = document.forms['email_submission']
+            console.log(email_form['user_email'].value)
+            if (email_form['user_email'].value ==='felix@gmail.com') {
+                return true 
+            }
+
+            document.getElementsByClassName('error2')[0].style.display = 'block'
+            return false
+        }
+    </script>
+    <style>
+        div.error{
+            font-size: small;
+            color: red;
+            display: none;
+        }
+    </style>
+
+<form id="container" onsubmit="return myforms()">
+    <label>Fistname:</label><br>
+    <input type="text" name="input_users_first" placeholder="firstname" id="firstname"><br>
+    <label>Lastname:</label><br>
+    <input type="text" name="input_users_last"placeholder="Lastname" id="lastname"><br>
+    <label>Email Address:</label><br>
+    <input type="email" name="input_users_email" placeholder="@gmail.com" id="email"><br>
+    <label>Password:</label><br>
+    <input type="password" name="input_users_password" placeholder="password" id="password"><br>
+    <label>Confirm Password:</label><br>
+    <input type="password" name="input_users_confirm"placeholder="password" id="confirm_password" onblur="check_password()"><br>
+    <input type="submit">
+</form>
+<div class="error">No empty space is Allowed </div><br>
+<style>
+    input{
+        width: 100%;
+        height: 20px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    label{
+        font-size: 30px;
+        font-style: italic;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    div.error{
+        font-size: small;
+        color: red;
+        display: none;
+    }
+    
+</style>
+<script>
+    let signup_forms = document.forms['container']
+    console.log(signup_forms);
+    function myforms(){
+        // let is_empty = signup_forms['input_users_first'].value !=='';
+        let is_empty = signup_forms['input_users_first'].value ==="" && signup_forms['input_users_last'].value ===""  && signup_forms['input_users_email'].value ==="" &&signup_forms['input_users_password'].value ==="" &&signup_forms['input_users_confirm'].value ==="";
+        console.log('is for empty-->', is_empty )
+        if (is_empty) {
+            console.log('empty')
+            document.getElementsByClassName('error').style.display = 'block';
+            return false
+        }
+        else{
+            console.log('not empty')
+           return true
+        }
+        // return false
+    }
+
+    function check_password(){
+        let passwords_match //here you compare the 2 passwords to see if they match
+        if (passwords_match) {
+            // make the div for success show
+        }else{
+            // make the box for failure show
+        }
+        console.log('checked')
+    }
+
+</script>
+</body>
+</html>

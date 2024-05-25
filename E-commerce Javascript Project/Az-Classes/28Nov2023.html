@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function approxSquareRoot(number) {
+        //     let guess = number / 2; // Initial guess
+
+        //     // Iteratively improve the guess
+        //     for (let i = 0; i < 5; i++) {
+        //         guess = (guess + number / guess) / 2; // Newton's method for approximating square roots
+        //         console.log(guess)
+        //     }
+        //     return guess;
+        // }
+
+        // function testSquareRootApproximation() {
+        //     const inputNumber = 100;
+        //     const calculatedResult = approxSquareRoot(inputNumber);
+        //     const actualResult = Math.sqrt(inputNumber);
+
+        //     if (Math.abs(calculatedResult - actualResult) < Number.EPSILON) {
+        //         console.log(`Square root approximation is within an acceptable range of precision.`);
+        //     } else {
+        //         console.log(`Square root approximation is not within an acceptable range of precision.`);
+        //     }
+        // }
+
+        // testSquareRootApproximation();
+            var unknown_student = 'Jideonwo';
+            var known_students = ['Mazi', 'Makanaki']
+        const names_of_students_v1 = ['Azuka', 'Mariam', 'Felix', 33, unknown_student, known_students]
+        const names_of_students_v2 = [
+            'Azuka',
+            'Mariam', 
+            'Felix', 
+            33, 
+            unknown_student, 
+            known_students
+        ]
+        names_of_students_v2[6] = 'MANGO';
+        names_of_students_v2[0] = 'Gideon';
+        console.log('names_of_students_v1',names_of_students_v1[2]);
+        console.log('names_of_students_v2',names_of_students_v2[4]);
+        console.log('names_of_students_v1',names_of_students_v1);
+        console.log('names_of_students_v2',names_of_students_v2);
+    </script>
+</body>
+</html>

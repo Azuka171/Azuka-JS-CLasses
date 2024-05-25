@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="product-grid">
+        <div class="product-box">
+            <img src="./image_slides_/images/2.jpg" alt="">
+            <div class="product_name">Product Name 1</div>
+            <button onclick="openModal(1)">View</button>
+        </div>
+        <div class="product-box">
+            <img src="./image_slides_/images/2.jpg" alt="">
+            <div class="product_name">Product Name 2</div>
+            <button onclick="openModal(2)">View</button>
+        </div>
+        <div class="product-box">
+            <img src="./image_slides_/images/2.jpg" alt="">
+            <div class="product_name">Product Name 3</div>
+            <button onclick="openModal(3)">View</button>
+        </div>
+        <div class="product-box">
+            <img src="./image_slides_/images/2.jpg" alt="">
+            <div class="product_name">Product Name 4</div>
+            <button onclick="openModal(4)">View</button>
+        </div>
+        <div class="product-box">
+            <img src="./image_slides_/images/2.jpg" alt="">
+            <div class="product_name">Product Name 5</div>
+            <button onclick="openModal(5)">View</button>
+        </div>
+        <div class="product-box">
+            <img src="./image_slides_/images/2.jpg" alt="">
+            <div class="product_name">Product Name 6</div>
+            <button onclick="openModal(6)">View</button>
+        </div>
+    </div>
+
+    <div class="modal_box" style="display: none;">
+        <div class="modal">
+            <div class="product_name">Product Name</div>
+            Modal
+        </div>
+        <div class="overlay" onclick="closeModal()"></div>
+    </div>
+
+    <style>
+        .product-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+        img{
+            width: 100%;
+        }
+
+        .modal_box{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .overlay{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.195);
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+        .modal{
+            background-color: white;
+            padding: 50px;
+            width: fit-content;
+            z-index: 2;
+        }
+        
+    </style>
+    <script>
+        // const modal_content = document.getElementsByClassName('modal')[0]
+        // modal_content.addEventListener('click', (e)=>{e.preventDefault()})
+        
+        function openModal(id){
+            const modal = document.getElementsByClassName('modal_box')[0]
+            modal.getElementsByClassName('product_name')[0].innerHTML = 'product name '+ id
+            modal.style.display = 'flex'
+        }
+        function closeModal(){
+            const modal = document.getElementsByClassName('modal_box')[0]
+            modal.style.display = 'none'
+        }
+
+    </script>
+</body>
+</html>

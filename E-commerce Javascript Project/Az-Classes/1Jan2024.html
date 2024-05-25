@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <a href="./23Dec2023.html">23Dec2023</a>
+    <a href="./30Dec2023.html">30Dec2023</a>
+    <a href="./31Dec2023.html">31Dec2023</a>
+    <a href="./1Jan2024.html">1Jan2024</a>
+    <div class="username">User's name</div>
+    <p id="paragraph-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p class="paragraphs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p class="paragraphs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p class="paragraphs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <div class="username">User's name</div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <div class="username">User's name</div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minima!</p>
+    <div class="contain">
+        <span>red</span>
+        <span>red</span>
+        <span>red</span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, saepe?
+    </div> -->
+    <form id="form-1">
+        <label for="username">Username</label>
+        <input type="text" name="username"><br>
+        <label for="password">Password</label>
+        <input type="text" name="username" id="password"><br>
+    </form>
+    <hr>
+    <form id="form-2">
+        <label for="agree-t&c">I agree to the terms and conditions</label>
+        <input type="checkbox" name="username" id="agree-t&c"><br>
+    </form>
+    <script>
+        let form1 = document.forms['form-1']
+        console.log('form1--->', form1);
+        form1.style.backgroundColor = '#ff0'
+
+
+        // let container1 = document.querySelectorAll('.paragraphs');
+        // let items = document.querySelectorAll('div.contain>span');
+        // let item = document.querySelector('div.contain>span');
+        // console.log('with querySelector-->',item);
+        // console.log('with querySelectorAll-->',items);
+        // items[2].innerText = 'rumple';
+        // item.innerText = 'single'
+        // console.log(container1[0])
+        // container1[0].style.backgroundColor = '#ff0';
+        // container1[2].style.backgroundColor = '#f00';
+
+    </script>
+    <style>
+        p.paragraphs{
+            font-size: 30px;
+        }
+        div.contain>span{
+            color: green;
+        }
+    </style>
+
+
+
+    <script src="./change_users_name.js"></script>
+</body>
+</html>

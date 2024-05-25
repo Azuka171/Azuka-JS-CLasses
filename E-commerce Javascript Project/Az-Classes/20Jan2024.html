@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="sign_up_form" onsubmit="return validate_form()">
+        <div class="col-2">
+            <div class="something">
+                <label for="fname">Name</label>
+                <input type="text" id="fname">
+            </div>
+            <div>
+                <label for="">Name</label>
+                <input type="text">
+            </div>
+        </div>
+        <div>
+            <label for="">Name</label>
+            <input type="email" name="email">
+        </div>
+        <input type="submit">
+    </form>
+
+    <style>
+        .col-2{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        input{
+            width: 100%;
+        }
+        input.error{
+            border: 1px red solid
+        }
+        div.error-msg{
+            color: red
+        }
+    </style>
+    <script>
+        "use strict"
+        function validate_form(){
+            let form = document.forms["sign_up_form"];
+            let fname = form['fname'] ;
+            // console.log(fname);
+            if (fname.value==='') {
+                let parent_div = fname.parentNode;
+                let error_div = document.createElement('div');
+                error_div.className = 'error-msg';
+                error_div.innerText = 'this field cannot be blank'
+                
+                parent_div.appendChild(error_div)
+                fname.classList.add('error');
+                console.log(parent_div)
+            }
+            // return false
+            return true
+        }
+
+
+
+
+        const cart = []
+        const produtItem = {
+            id: 1,
+            name: 'banana'
+        }
+        cart.push(produtItem)
+
+        class CartItem {
+            constructor(id, name, qty){
+                this.id = id,
+                this.name = name,
+                this.qty = qty
+            }
+        }
+
+        const newCartItem = new CartItem(produtItem.id, produtItem.name, 1)
+        console.log(newCartItem)
+        cart.push(newCartItem)
+        console.log(cart)
+
+
+
+
+        let cash_digit = 1059900;
+        let rsa_digit = (cash_digit*0.05)+cash_digit
+        let mort_digit = (cash_digit*0.11)+cash_digit
+
+        console.log('res',rsa_digit)
+        console.log('mort',mort_digit)
+    </script>
+</body>
+</html>

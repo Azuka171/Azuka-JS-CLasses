@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="./23Dec2023.html">23Dec2023</a>
+    <a href="./30Dec2023.html">30Dec2023</a>
+    <a href="./31Dec2023.html">31Dec2023</a>
+    <a href="./1Jan2024.html">1Jan2024</a>
+    <div class="username">User's name</div>
+    <table id="container" border="1"></table>
+    <style>
+        td{
+            padding: 10px
+        }
+    </style>
+    <script>
+        let table_container = document.getElementById('container')
+
+        for (let r = 1; r < 11; r++) {
+            let table_row = document.createElement('tr');
+
+            for (let c = 1; c < 11; c++) {
+                let table_data = document.createElement('td');
+                table_data.innerText = c * r;
+                table_row.appendChild(table_data)
+                
+            }
+            table_container.appendChild(table_row)
+            
+        }
+    </script>
+    <script src="./change_users_name.js"></script>
+</body>
+</html>

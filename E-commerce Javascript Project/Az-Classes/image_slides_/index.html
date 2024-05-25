@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="toggle_PrevImage()">Prev</button>
+    <img src="./images/1.jpg" alt="" width="300px" id="img-slide">
+    <button onclick="toggle_NextImage()">Next</button>
+    <script>
+        // const toggle_images = ()=>{
+            
+        // }
+        let current_img = 1
+        
+        const toggle_NextImage = ()=>{
+            current_img++
+            document.getElementById('img-slide').src = 'images/'+current_img+'.jpg'
+        }
+        const toggle_PrevImage = ()=>{
+            current_img--
+            document.getElementById('img-slide').src = 'images/'+current_img+'.jpg'
+        }
+    </script>
+</body>
+</html>

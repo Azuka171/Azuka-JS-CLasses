@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="prefect-box"></div>
+    <div id="prefect-box1"></div>
+    <script>
+        const prefects = ['azuka', 'moses'];
+        prefects[2] = 'mariam';
+        single_person = 'mamuod'
+        console.log(prefects)
+
+        const person1 = ['Azuka', 'Gideon','chioma', 'chuka']; 
+        const person2 = {firstname: 'Azuka', lastname: 'Gideon', relatives: prefects}; 
+        console.log(person2)
+        console.log('typeof person1--->', typeof person1)
+        console.log('testing person 2 using the isArray person1--->', Array.isArray(person1))
+        console.log('testing person 2 using the isArray person1--->', Array.isArray(person2))
+        
+        console.log('testing person 2 using the is instanceof person1--->', person1 instanceof Array)
+        console.log('testing person 2 using the is instanceof person1--->', person2 instanceof Object)
+        
+        console.log( 'typeof person2--->', typeof person2)
+        console.log(typeof single_person)
+
+
+        document.getElementById("prefect-box").innerHTML = prefects.toString();
+        document.getElementById("prefect-box1").innerHTML = prefects.join("--");
+
+        
+        person1.push("isioma"); //adds item to end of array
+        console.log(person1);
+        person1.pop(); //takes out last item from the array
+        console.log(person1);
+        person1.shift(); //takes out first-item from the array
+        console.log(person1);
+        person1.unshift("felix"); //adds item to the begining of the array
+        console.log(person1);
+        delete person1[2]; 
+        console.log(person1);
+        const combined_array = person1.concat(person2, prefects);
+        console.log(combined_array);
+        const multiple_person = ['azuka', ['idris', 'ify', 'joy'], ['marvelous', 'michael']]
+        console.log('old multiple_person--->', multiple_person);
+        const multiple_person_new = multiple_person.flat();
+        console.log('new multiple_person--->', multiple_person_new);
+
+
+        multiple_person_new.splice(1, 2, 'abdul', 'miracle');
+        console.log('splice-->', multiple_person_new);
+
+
+
+
+    </script>
+</body>
+</html>
