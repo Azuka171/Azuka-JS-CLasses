@@ -82,3 +82,9 @@ function closeModal(){
     const modal = document.getElementsByClassName('modal_box')[0]
     modal.style.display = 'none'
 }
+
+document.getElementsByClassName('overlay')[0].addEventListener('click', (event)=>{
+        event.preventDefault()
+        closeModal()
+    }
+)
