@@ -1,3 +1,5 @@
+import { updateUI } from "./products.js"
+
 const index_content = `<div class="banner-section">
 <div class="welcome"> Welcome to the D-Empire's</div>
 <div class="note">The home of credibility and satisfaction</div>
@@ -354,128 +356,14 @@ const contact_content = `<div class="contact-section">
 </form> -->
 </div>`
 
-const service_content = `<div class="galley">
-<div class="product">our products</div>
-<div class="arrangement">decorations</div>
-<div id="product-div">
-    <img src="./images/DE4.jpeg">
-    <img src="./images/dE1.jpeg">
-    <img src="./images/pic1.jpg">
-    <img src="./images/pic2.jpg">
-    <img src="./images/pic3.jpg">
-    <img src="./images/pic4.jpg">
-    <img src="./images/pic31.jpg">
-    <img src="./images/pic32.jpg">
-    <img src="./images/pic33.jpg">
-    <img src="./images/pic34.jpg">
-    <img src="./images/pic45.jpg">
-    <img src="./images/new p18.jpg">
-    <img src="./images/new p19.jpg"> 
-    <img src="./images/new p22.jpg"> 
-    <img src="./images/new p24.jpg">
-    <img src="./images/new p26.jpg">
-    <img src="./images/new p27.jpg">
-    <img src="./images/new p30.jpg">
-    <img src="./images/new p31.jpg">
-    <img src="./images/new p32.jpg">
-    <img src="./images/new p39.jpg">
-</div>
-<div class="arrangement">Cakes</div>
-<div id="product-div">
-    <img src="./images/cakep.jpeg">
-    <img src="./images/cakep1.jpeg">
-    <img src="./images/castle1.jpeg">
-    <img src="./images/pic9.jpg">
-    <img src="./images/pic15.jpg">
-    <img src="./images/pic16.jpg">
-    <img src="./images/pic24.jpg">
-    <img src="./images/pic27.jpg">
-    <img src="./images/pic21.jpg">
-    <img src="./images/pic29.jpg">
-    <img src="./images/pic30.jpg">
-    <img src="./images/pic35.jpg">
-    <img src="./images/pic36.jpg">
-    <img src="./images/pic37.jpg">
-    <img src="./images/pic38.jpg">
-    <img src="./images/pic39.jpg">
-    <img src="./images/pic40.jpg">
-    <img src="./images/pic42.jpg">
-    <img src="./images/pic43.jpg">
-    <img src="./images/pic44.jpg">
-    <img src="./images/pic46.jpg">
-    <img src="./images/pic47.jpg">
-    <img src="./images/pic48.jpg">
-    <img src="./images/pic50.jpg">
-    <img src="./images/pic51.jpg">
-    
-</div>
-<div class="arrangement">wedding gowns</div>
-<div id="product-div">
-    <img src="./images/new p.jpg">
-    <img src="./images/new p3.jpg">
-    <img src="./images/new p9.jpg">
-    <img src="./images/new p11.jpg">
-    <img src="./images/new p13.jpg">
-    <img src="./images/new p25.jpg">
-    <img src="./images/new p29.jpg">
-    <img src="./images/new p33.jpg">
-    <img src="./images/new p34.jpg">
-    <img src="./images/new p35.jpg">
-    <img src="./images/new p36.jpg">
-    <img src="./images/new p37.jpg">
-</div>
-<div class="arrangement">traditional dressing</div>
-<div id="product-div">
-    <img src="./images/new p8.jpg">
-    <img src="./images/new p10.jpg">
-    <img src="./images/new p12.jpg">
-    <img src="./images/new p15.jpg">
-    <img src="./images/new p16.jpg">
-    <img src="./images/new p17.jpg">
-    <img src="./images/new p20.jpg">
-    <img src="./images/new p23.jpg">
-    <img src="./images/new p28.jpg">
-</div>
-<div class="arrangement">bridal hair /bridal shower /makeup</div>
-<div id="product-div">
-    <img src="./images/new p1.jpg">
-    <img src="./images/new p2.jpg">
-    <img src="./images/new p4.jpg">
-    <img src="./images/new p5.jpg">
-    <img src="./images/new p6.jpg">
-    <img src="./images/new p7.jpg">
-    <img src="./images/new p38.jpg"> 
-</div>
-<div class="arrangement">small chops</div>
-<div id="product-div">
-    <img src="./images/dEs1.jpeg">
-    <img src="./images/pic5.jpg">
-    <img src="./images/pic6.jpg">
-    <img src="./images/pic18.jpg">
-    <img src="./images/pic22.jpg">
-</div>
-<div class="arrangement">Suprise package / food</div>
-<div id="product-div">
-    <img src="./images/ballon.jpeg">
-    <img src="./images/dE2s.jpeg">
-    <img src="./images/pic20.jpg">
-    <img src="./images/pic23.jpg">
-    <img src="./images/pic25.jpg">
-    <img src="./images/pic26.jpg">
-    <img src="./images/pic28.jpg">
-    <img src="./images/pic41.jpg">
-    <img src="./images/pic49.jpg">
-    <img src="./images/pic7.jpg">
-    <img src="./images/pic8.jpg">
-    <img src="./images/pic10.jpg">
-    <img src="./images/pic12.jpg">
-    <img src="./images/pic13.jpg">
-    <img src="./images/pic14.jpg">
-    <img src="./images/pic17.jpg">
-    <img src="./images/pic19.jpg">
-</div>
-</div>
-<div class="empire"><a href="contact-us.html">Book now</a></div>`
+const service_content = `
+    <div class="galley">
+        <div class="product">our products</div>
+        <div id="product-div">
+            <!--contents-->
+        </div>
+
+    </div>`
 
 const video_content = `<div class="video-grid-section">
 <video src="./videos/DE EMPIRE VID 1.mp4"  controls play loop  muted></video>
@@ -495,8 +383,9 @@ document.getElementById('home_link').addEventListener('click', (event)=>{
     }
 )
 document.getElementById('service_link').addEventListener('click', (event)=>{
-    event.preventDefault()
-   contents_container.innerHTML = service_content
+        event.preventDefault()
+        contents_container.innerHTML = service_content
+        updateUI()
     }
 )
 document.getElementById('about_link').addEventListener('click', (event)=>{
@@ -515,84 +404,3 @@ document.getElementById('video_link').addEventListener('click', (event)=>{
     }
 )
 
-const products = [
-    {
-        id: 1,
-        name: 'Wedding gown ',
-        img: '<img src="./images/wedding picture.jpg">',
-        dsc: 'Promote hair growth with the rich formula of the Kirkland Signature Minoxidil 5% treatment made for men. Kirkland Signature Minoxodil topical Aerosol 5% is for men who have a general thinning of hair on the top of the scalp. Minoxidil has been show to regrow hair in men with low to moderate hair loss.Treat thinning hair and balding with this Kirkland hair loss treatment.Promote hair growth with the rich formula of the Kirkland Signature Minoxidil 5% treatment made for men. The active ingredient of this Kirkland extra strength treatment is 5% Minoxidil that nourishes the hair follicle to facilitate the hair growth process. As believed by the makers, this Kirkland hair loss treatment takes about 2 - 4 months time for effective results to start showing. Just 1 ml of the Kirkland Signature Minoxidil 5% treatment has to be applied twice daily to give you the best results possible. Treat thinning hair and balding with this Kirkland hair loss treatment.'
-    },
-    {
-        id: 2,
-        name: 'Suprise Package ',
-        img: '<img src="./images/ballon.jpeg">',
-        dsc: ' A fantastic wrist watch, does its functions with near accuracy. This H11 Ultra Plus (H11 Ultra+) Series 8 smart watch is an excellent wearable smart device or smart watch, so much different from many smart watches and upgraded with abilities more superior and long lasting than the other smart watches you have purchased and seen.'
-    },
-     {
-        id: 3,
-        name: 'Decoration',
-        img: '<img src="./images/dE1.jpeg">',
-        dsc: 'Some Ladies like their sunglasses having big frames. It is a form of fashion and actually protects the eyes completely, not only from rays of the sun also from wind.This is one of those Designer Luxury Big Frame sunglasses with metal material and very comfortable to wear daily. It gives you a pretty look.'
-     },
-    {
-       id: 4,
-       name: 'Suprise Package',
-       img: '<img src="./images/dE2s.jpeg">',
-       dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
-    },
-    {
-       id: 5,
-       name: 'Traditional Dressing',
-       img: '<img src="./images/make-up.jpg">',
-       dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
-    },
-    {  id: 6,
-       name: 'Cake',
-       img: ' <img src="./images/cakep1.jpeg">',
-       dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
-    },
-    {  id: 7,
-       name: 'Castle Cake',
-       img: ' <img src="./images/castle1.jpeg">',
-       dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
-    },
-    {  id: 8,
-       name: 'Small Chops',
-       img: '<img src="./images/dEs1.jpeg">',
-       dsc: '10x6 Inch Professional Graphics Drawing Tablet 12 Express Keys with 8192 Levels Battery-Free Stylus/8pcs Nibs/Pen Clip Support PC/Laptop Connection Compatible with Windows Mac for Painting Designing Online Course '
-    },
-
-]
-
-function updateUI(){
-            const product_grid = document.getElementById('product_div')[0]
-            products.map((product)=>{
-                const product_box = document.createElement('div');
-                product_box.classList = 'product-box'
-                const img = document.createElement('img');
-                img.src = product.img;
-                const product_name = document.createElement('div');
-                product_name.innerText = product.name;
-                const view_btn = document.createElement('button');
-                view_btn.innerText = "view";
-                view_btn.addEventListener("click",  ()=>openModal(product))
-
-                product_box.appendChild(img);
-                product_box.appendChild(product_name);
-                product_box.appendChild(view_btn);
-
-                product_grid.appendChild(product_box);
-            })
-        }
-        updateUI()
-        function openModal(product_obj){
-            const modal = document.getElementsByClassName('modal_box')[0]
-            modal.getElementsByClassName('product_name')[0].innerHTML = product_obj.name
-            modal.getElementsByClassName('product_dsc')[0].innerHTML = product_obj.dsc
-            modal.querySelector('img').src = product_obj.img
-            modal.style.display = 'flex'
-        }
-        function closeModal(){
-            const modal = document.getElementsByClassName('modal_box')[0]
-            modal.style.display = 'none'
-        }
