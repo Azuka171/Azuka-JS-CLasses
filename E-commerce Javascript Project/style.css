@@ -247,8 +247,8 @@ nav.menu{
     /* margin-top:5px ; */
     text-align: center;
     text-transform: uppercase;
-    font-size: 150px;
-    font-weight: 600;
+    font-size: 100px;
+    font-weight: 500;
     padding-top:50px;
     /* font-family: franklin; */
     color:var(--primary-color);

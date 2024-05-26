@@ -20,6 +20,7 @@
                 <div><a href="contact-us.html" id="contact_link">contact</a></div>
                 <div><a href="video.html" id="video_link">video</a></div>
                 <div id="cart_link">Cart Icon</div>
+                <div id="other_link">Other Services</div> 
             </div>
            <label class="hamburger" id="hamburger-trigger-open" for="side-bar-trigger">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/ ></svg>
@@ -38,11 +39,14 @@
             <!-- to be injected from javascript -->
         </main>
         <div class="modal_box" style="display: none;">
+            
             <div class="modal">
+                <button class="btn-close">⨉</button>
                 <img src="" alt="">
                 <div class="product_name">Product Name</div>
                 <div class="product_dsc"></div>
                 <button>Add to Cart</button>
+                
             </div>
             <div class="overlay"></div>
         </div>
@@ -82,7 +86,24 @@
                 width: fit-content;
                 padding: 8px 16px;
                 margin: 5px;
+                cursor: pointer;
             }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Inter", sans-serif;
+                position: relative;
+              }
+              .btn-close {
+                transform: translate(10px, -20px);
+                padding: 0.5rem 0.7rem;
+                background: #eee;
+                border-radius: 50%;
+                position: absolute;
+                margin-left: 85%;
+
+              }
         </style>
         <footer>
             <div class="main-box">

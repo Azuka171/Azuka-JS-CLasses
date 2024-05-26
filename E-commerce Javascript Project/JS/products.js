@@ -94,3 +94,7 @@ document.getElementsByClassName('overlay')[0].addEventListener('click', (event)=
         closeModal()
     }
 )
+document.getElementsByClassName('btn-close')[0].addEventListener('click', (event)=>{
+    event.preventDefault()
+    closeModal()
+} )

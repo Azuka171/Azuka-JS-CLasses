@@ -358,7 +358,7 @@ const contact_content = `<div class="contact-section">
 
 const service_content = `
     <div class="galley">
-        <div class="product">our products</div>
+        <div class="product">Book Our Services</div>
         <div id="product-div">
             <!--contents-->
         </div>
@@ -374,6 +374,129 @@ const video_content = `<div class="video-grid-section">
 </div>
 <div class="empire"><a href="contact-us.html">Book now</a></div>`
 const cart_content = ``
+
+const other_content = `<div class="galley">
+<div class="product">our products</div>
+<div class="arrangement">decorations</div>
+<div id="product-div">
+    <img src="./images/DE4.jpeg">
+    <img src="./images/dE1.jpeg">
+    <img src="./images/pic1.jpg">
+    <img src="./images/pic2.jpg">
+    <img src="./images/pic3.jpg">
+    <img src="./images/pic4.jpg">
+    <img src="./images/pic31.jpg">
+    <img src="./images/pic32.jpg">
+    <img src="./images/pic33.jpg">
+    <img src="./images/pic34.jpg">
+    <img src="./images/pic45.jpg">
+    <img src="./images/new p18.jpg">
+    <img src="./images/new p19.jpg"> 
+    <img src="./images/new p22.jpg"> 
+    <img src="./images/new p24.jpg">
+    <img src="./images/new p26.jpg">
+    <img src="./images/new p27.jpg">
+    <img src="./images/new p30.jpg">
+    <img src="./images/new p31.jpg">
+    <img src="./images/new p32.jpg">
+    <img src="./images/new p39.jpg">
+</div>
+<div class="arrangement">Cakes</div>
+<div id="product-div">
+    <img src="./images/cakep.jpeg">
+    <img src="./images/cakep1.jpeg">
+    <img src="./images/castle1.jpeg">
+    <img src="./images/pic9.jpg">
+    <img src="./images/pic15.jpg">
+    <img src="./images/pic16.jpg">
+    <img src="./images/pic24.jpg">
+    <img src="./images/pic27.jpg">
+    <img src="./images/pic21.jpg">
+    <img src="./images/pic29.jpg">
+    <img src="./images/pic30.jpg">
+    <img src="./images/pic35.jpg">
+    <img src="./images/pic36.jpg">
+    <img src="./images/pic37.jpg">
+    <img src="./images/pic38.jpg">
+    <img src="./images/pic39.jpg">
+    <img src="./images/pic40.jpg">
+    <img src="./images/pic42.jpg">
+    <img src="./images/pic43.jpg">
+    <img src="./images/pic44.jpg">
+    <img src="./images/pic46.jpg">
+    <img src="./images/pic47.jpg">
+    <img src="./images/pic48.jpg">
+    <img src="./images/pic50.jpg">
+    <img src="./images/pic51.jpg">
+    
+</div>
+<div class="arrangement">wedding gowns</div>
+<div id="product-div">
+    <img src="./images/new p.jpg">
+    <img src="./images/new p3.jpg">
+    <img src="./images/new p9.jpg">
+    <img src="./images/new p11.jpg">
+    <img src="./images/new p13.jpg">
+    <img src="./images/new p25.jpg">
+    <img src="./images/new p29.jpg">
+    <img src="./images/new p33.jpg">
+    <img src="./images/new p34.jpg">
+    <img src="./images/new p35.jpg">
+    <img src="./images/new p36.jpg">
+    <img src="./images/new p37.jpg">
+</div>
+<div class="arrangement">traditional dressing</div>
+<div id="product-div">
+    <img src="./images/new p8.jpg">
+    <img src="./images/new p10.jpg">
+    <img src="./images/new p12.jpg">
+    <img src="./images/new p15.jpg">
+    <img src="./images/new p16.jpg">
+    <img src="./images/new p17.jpg">
+    <img src="./images/new p20.jpg">
+    <img src="./images/new p23.jpg">
+    <img src="./images/new p28.jpg">
+</div>
+<div class="arrangement">bridal hair /bridal shower /makeup</div>
+<div id="product-div">
+    <img src="./images/new p1.jpg">
+    <img src="./images/new p2.jpg">
+    <img src="./images/new p4.jpg">
+    <img src="./images/new p5.jpg">
+    <img src="./images/new p6.jpg">
+    <img src="./images/new p7.jpg">
+    <img src="./images/new p38.jpg"> 
+</div>
+<div class="arrangement">small chops</div>
+<div id="product-div">
+    <img src="./images/dEs1.jpeg">
+    <img src="./images/pic5.jpg">
+    <img src="./images/pic6.jpg">
+    <img src="./images/pic18.jpg">
+    <img src="./images/pic22.jpg">
+</div>
+<div class="arrangement">Suprise package / food</div>
+<div id="product-div">
+    <img src="./images/ballon.jpeg">
+    <img src="./images/dE2s.jpeg">
+    <img src="./images/pic20.jpg">
+    <img src="./images/pic23.jpg">
+    <img src="./images/pic25.jpg">
+    <img src="./images/pic26.jpg">
+    <img src="./images/pic28.jpg">
+    <img src="./images/pic41.jpg">
+    <img src="./images/pic49.jpg">
+    <img src="./images/pic7.jpg">
+    <img src="./images/pic8.jpg">
+    <img src="./images/pic10.jpg">
+    <img src="./images/pic12.jpg">
+    <img src="./images/pic13.jpg">
+    <img src="./images/pic14.jpg">
+    <img src="./images/pic17.jpg">
+    <img src="./images/pic19.jpg">
+</div>
+</div>
+<div class="empire"><a href="contact-us.html">Book now</a></div>`
 
 const contents_container = document.getElementsByTagName('main')[0];
 contents_container.innerHTML = index_content
@@ -407,6 +530,11 @@ document.getElementById('video_link').addEventListener('click', (event)=>{
 document.getElementById('cart_link').addEventListener('click', (event)=>{
     event.preventDefault()
    contents_container.innerHTML = cart_content
+    }
+)
+document.getElementById('other_link').addEventListener('click', (event)=>{
+    event.preventDefault()
+   contents_container.innerHTML = other_content
     }
 )
 
