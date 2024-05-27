@@ -527,11 +527,7 @@ document.getElementById('video_link').addEventListener('click', (event)=>{
    contents_container.innerHTML = video_content
     }
 )
-document.getElementById('cart_link').addEventListener('click', (event)=>{
-    event.preventDefault()
-   contents_container.innerHTML = cart_content
-    }
-)
+
 document.getElementById('other_link').addEventListener('click', (event)=>{
     event.preventDefault()
    contents_container.innerHTML = other_content

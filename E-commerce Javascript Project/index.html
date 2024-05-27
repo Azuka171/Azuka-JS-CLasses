@@ -17,10 +17,44 @@
             <div class="service-menu">
                 <div><a href="our-services.html" id="service_link">Our Services</a></div>
                 <div><a a href="About-us.html" id="about_link">About</a></div>
-                <div><a href="contact-us.html" id="contact_link">contact</a></div>
-                <div><a href="video.html" id="video_link">video</a></div>
-                <div id="cart_link">Cart Icon</div>
                 <div id="other_link">Other Services</div> 
+                <div id="cart_link"><span id="cartToggle">Cart Icon</span>
+                    <div id="cart-container" style="display: none;">
+                         <!-- <div class="item-container">
+                            <div>wedding gown</div>
+                            <div> 
+                               <div class="price-div">
+                                N50,000.00 
+                                <button class="btn-min">-</button>
+                                <div>2</div>
+                                <button class="btn-min">+</button>
+                               </div> 
+                            </div>
+                            
+                        </div>
+                        <div class="item-container"> 
+                            <div>Suprise Package</div>
+                            <div class="cart-qty-box">
+                                <div class="price-div">
+                                    N10,000.00
+                                </div> 
+                               <div class="cart-qty">
+                                    <button class="btn-min">-</button>
+                                    <div>2</div>
+                                    <button class="btn-min">+</button>
+                               </div> 
+                            </div>
+                        </div> -->
+                        <div class="total">
+                            <div>Total</div>
+                            <div>N60,000.00</div>
+                        </div>
+                        <div class="injectDiv"></div>
+                        <button class="check-btn">Check Out</button>
+                    </div>
+                </div>
+                <div><a href="video.html" id="video_link">video</a></div>
+                <div><a href="contact-us.html" id="contact_link">contact</a></div>
             </div>
            <label class="hamburger" id="hamburger-trigger-open" for="side-bar-trigger">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/ ></svg>
@@ -103,6 +137,43 @@
                 position: absolute;
                 margin-left: 85%;
 
+              }
+              #cart-container{
+                width: 300px;
+                background-color: white;
+                position: absolute;
+                z-index: 2;
+                
+
+              }
+              .item-container{
+                display: block;
+                color: black;
+                background-color: rgb(215, 191, 191);
+                text-transform:capitalize;
+                padding: 20px;
+              }
+              .price-div{
+                display: flex;
+              }
+              .btn-min{
+                border-radius: 100%;
+                background-color: red;
+                color: white;
+              }
+              .check-btn{
+                width: 100%;
+                background-color: red;
+                border-radius: 2px;
+              }
+              .cart-qty{
+                display: flex;
+                align-items: center;
+              }
+              .cart-qty-box{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
               }
         </style>
         <footer>
