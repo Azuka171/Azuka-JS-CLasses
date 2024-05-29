@@ -85,6 +85,7 @@ export function updateUI(){
         img.src = product.img;
         const product_name = document.createElement('div');
         product_name.innerText = product.name;
+        product_name.classList='name'
         const view_btn = document.createElement('button');
         view_btn.innerText = 'More Details';
         view_btn.addEventListener("click",  ()=>openModal(product))
@@ -152,6 +153,7 @@ function updateCart(){
     if(cartDiv===null){
         return
     }
+    cartDiv.innerHTML = '';
     Cart.map((cartItem)=>{
         const cart_containerBox = document.createElement('div');
         cart_containerBox.classList = 'item-container'
