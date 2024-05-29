@@ -73,6 +73,16 @@ const products = [
 
 ]
 const Cart = []
+class cartItemClass{
+    constructor(id, name, img, price){
+        this.id = id;
+        this.name= name;
+        this.img = img;
+        this.price = price;
+        this.qty = 1;
+        
+    }
+}
 export function updateUI(){
     const product_grid = document.getElementById('product-div')
     if(product_grid===null){
@@ -131,7 +141,9 @@ function addToCart(productId){
     // console.log(productId);
     const productIndex = products.findIndex(e =>e.id===productId)
     // console.log(products[productIndex]);
-    Cart.push(products[productIndex])
+    const tmp_p = products[productIndex];
+    const newobj = new cartItemClass(tmp_p.id, tmp_p.name, tmp_p.img, tmp_p.price);
+    Cart.push(newobj);
     console.table(Cart);
     updateCart();
 
@@ -150,10 +162,14 @@ document.getElementById('cartToggle').addEventListener('click', (event)=>{
 
 function updateCart(){
     const cartDiv = document.getElementsByClassName('injectDiv')[0]
+    // cartDiv.classList = 'cart_div'
     if(cartDiv===null){
         return
     }
     cartDiv.innerHTML = '';
+    if(Cart.length === 0){
+        cartDiv.innerHTML = 'You do not have item in your cart please continue shopping!'
+    }
     Cart.map((cartItem)=>{
         const cart_containerBox = document.createElement('div');
         cart_containerBox.classList = 'item-container'
@@ -167,17 +183,20 @@ function updateCart(){
         cartQty.appendChild(price);
         const btn_box = document.createElement('div');
         btn_box.classList = 'cart-qty';
-        const button = document.createElement('button');
-        button.innerText ='-'
-        button.classList = 'btn-min'
-        btn_box.appendChild(button);
+        const decreaseBtn = document.createElement('button');
+        decreaseBtn.innerText ='-'
+        decreaseBtn.classList = 'btn-min'
+        decreaseBtn.addEventListener('click', ()=>(decreaseQty(cartItem.id)));
+        btn_box.appendChild(decreaseBtn);
         const number = document.createElement('div');
-        number.innerText = '2' //to revisit
+        number.innerText = cartItem.qty //!to revisit
         btn_box.appendChild(number);
-        const lastbutton = document.createElement('button')
-        lastbutton.innerText = '+'
-        lastbutton.classList = 'btn-min'
-        btn_box.appendChild(lastbutton);
+        const increaseBtn = document.createElement('button')
+        increaseBtn.innerText = '+'
+        increaseBtn.classList = 'btn-min'
+        increaseBtn.addEventListener('click', ()=>(increaseQty(cartItem.id)));
+        btn_box.appendChild(increaseBtn);
+
 
         
         cartQty.appendChild(btn_box);
@@ -186,6 +205,27 @@ function updateCart(){
 
 
     })
+}
+function increaseQty(cartId){
+    const cartIndex = Cart.findIndex(e =>e.id===cartId);
+    if(cartIndex === -1){
+        return console.error('can not find cartid in the cart');
+    }
+    Cart[cartIndex].qty++;
+    updateCart();
+}
+
+function decreaseQty(cartId){
+    const cartIndex = Cart.findIndex(e =>e.id===cartId);
+    if(cartIndex === -1){
+        return console.error('can not find cartid in the cart');
+    }
+    if(Cart[cartIndex].qty > 1){
+        Cart[cartIndex].qty--;
+    }else{
+        Cart.splice(cartIndex, 1);
+    }
+    updateCart();
 }
 
 
