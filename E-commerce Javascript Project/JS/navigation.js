@@ -24,7 +24,7 @@ const index_content = `<div class="banner-section">
             atmosphere that leaves a lasting impression.
         </p>
     </div>
-    <div class="learn-more-btn"><a href="About-us.html" class="aboutlink">Read More</a></div> 
+    <div class="learn-more-btn"><a href="#" class="aboutlink" onclick="linkToAbout(event)">Read More</a></div> 
 </div>
 </div>
 <div class="mission-vision-section">
@@ -65,14 +65,14 @@ const index_content = `<div class="banner-section">
 <div class="galley">
 <div class="product">our products</div>
 <div id="product-div">
-    <a href="our-services.html"><img src="./images/wedding picture.jpg"></a>
-    <a href="our-services.html"><img src="./images/ballon.jpeg"></a>   
-    <a href="our-services.html"> <img src="./images/dE1.jpeg"></a>    
-    <a href="our-services.html"><img src="./images/dE2s.jpeg"></a>   
-    <a href="our-services.html"><img src="./images/make-up.jpg"></a>   
-    <a href="our-services.html"> <img src="./images/cakep1.jpeg"></a>   
-    <a href="our-services.html"><img src="./images/castle1.jpeg"></a> 
-    <a href="our-services.html"> <img src="./images/dEs1.jpeg"></a>   
+    <a href="other-services.html"><img src="./images/wedding picture.jpg"></a>
+    <a href="other-services.html"><img src="./images/ballon.jpeg"></a>   
+    <a href="other-services.html"> <img src="./images/dE1.jpeg"></a>    
+    <a href="other-services.html"><img src="./images/dE2s.jpeg"></a>   
+    <a href="other-services.html"><img src="./images/make-up.jpg"></a>   
+    <a href="other-services.html"> <img src="./images/cakep1.jpeg"></a>   
+    <a href="other-services.html"><img src="./images/castle1.jpeg"></a> 
+    <a href="other-services.html"> <img src="./images/dEs1.jpeg"></a>   
 </div>
 </div>
 <div class="empire"><a href="contact-us.html">Book now</a></div>
@@ -131,7 +131,7 @@ const about_us_content = `<div class="about-us-banner-section">
 </div>
 <div class="empire"><a href="contact-us.html">Book now</a></div>`
 
-const contact_content = `<div class="contact-section">
+export const contact_content = `<div class="contact-section">
 <div class="welcome-page"> Welcome to the D-Empire's</div>
 <div class="note-form">The home of credibility and satisfaction</div>
 <div class="service-event">we are at your service book your Event:</div>
@@ -356,7 +356,7 @@ const contact_content = `<div class="contact-section">
 </form> -->
 </div>`
 
-const service_content = `
+export const service_content = `
     <div class="galley">
         <div class="product">Book Our Services</div>
         <div id="product-div">
@@ -375,7 +375,7 @@ const video_content = `<div class="video-grid-section">
 <div class="empire"><a href="contact-us.html">Book now</a></div>`
 const cart_content = ``
 
-const other_content = `<div class="galley">
+export const other_content = `<div class="galley">
 <div class="product">our products</div>
 <div class="arrangement">decorations</div>
 <div id="product-div">
@@ -498,7 +498,7 @@ const other_content = `<div class="galley">
 </div>
 <div class="empire"><a href="contact-us.html">Book now</a></div>`
 
-const contents_container = document.getElementsByTagName('main')[0];
+export const contents_container = document.getElementsByTagName('main')[0];
 contents_container.innerHTML = index_content
 
 document.getElementById('home_link').addEventListener('click', (event)=>{
@@ -533,5 +533,15 @@ document.getElementById('other_link').addEventListener('click', (event)=>{
    contents_container.innerHTML = other_content
     }
 )
-
-
+ 
+export function linkToAbout(event){
+    event.preventDefault();
+    console.log(event.target);
+    contents_container.innerHTML = about_us_content
+}
+export function linkToContact(event){
+    event.preventDefault();
+}
+export function linkToService(event){
+    event.preventDefault();
+}

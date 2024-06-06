@@ -10,18 +10,24 @@
       <script>
         const Cart = []
 
-        class CartItemClass{
-          constructor(id, name, img, price){
+        class StudentClass{
+          constructor(id, fname, lname, img, lvl){
             this.id = id;
-            this.name = name;
+            this.fname = fname;
+            this.lname = lname;
             this.img = img;
-            this.price = price;
+            this.lvl = lvl;
             this.qty = 1
+          }
+          getFullname(){
+            return this.fname + ' '+ this.lname;
           }
         }
 
-        const newObj = new CartItemClass(1,'product name', 'src/img.png', 3000)
-        console.log(newObj)
+        const newObj = new StudentClass(1,'Azuka', 'Gideon', 'img.png', '4000')
+        console.log(newObj);
+        console.log(newObj.getFullname())
+
 
       </script>
   </body>
