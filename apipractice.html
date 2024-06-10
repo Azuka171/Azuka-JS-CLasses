@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <script>
+        console.log('hello!')
+      fetch('https://reqres.in/api/users').then(res => console.log(res));
+      
+      fetch('https://reqres.in/api/users').then(res =>{
+        if(res.ok){
+            console.log('SUCCESS')
+        }else{
+            console.log('NOT SUCCESS')
+        } 
+        res.json()
+        .then(data => console.log(data))
+        })
+      .catch(error => console.log('ERROR'))
+      
+      //TO READ DATA FROM A SERVER OR POST DATA TO A SERVER WE USE OPTION METHOD
+      fetch('https://reqres.in/api/users', {
+        method: 'POST',
+        headers:{
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: 'user 1'
+        })
+      }).then(res =>{
+            return  res.json()
+      })
+     .then(data => console.log('----> option method', data))
+      
+      .catch(error => console.log('-----> option method', 'ERROR'))
+      
+    </script>
+</body>
+</html>
