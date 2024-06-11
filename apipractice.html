@@ -3,40 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API</title>
+    <title>API Practice</title>
 </head>
 <body>
+    <h2>JavaScript Geolocation</h2>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <div id="demo"></div>
+    
+    <p>Enter a number and click OK:</p>
+
+    <input id="id1" type="number" min="100" max="300" required>
+    <button onclick="myFunction()">OK</button>
+
+    <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
+
+    <div id="demo1"></div>
+
+    <p>Enter a number and click OK:</p>
+
+    <input id="id2" type="number" max="100">
+    <button onclick="ourFunction()">OK</button>
+
+    <p>If the number is greater than 100 (the input's max attribute), an error message will be displayed.</p>
+
+    <div id="demo2"></div>
+    
+    <p>Enter a number and click OK:</p>
+
+    <input id="id3" type="number" min="100">
+    <button onclick="underFunction()">OK</button>
+
+    <p>If the number is less  than 100 (the input's min  attribute), an error message will be displayed.</p>
+
+    <div id="demo3"></div>
+    
+    <button onclick="backFunction()">Go Back</button><br>
+    <button onclick="goFunction()" style="margin-top: 20px;">Go Back 2 Pages</button><br>
+    <button onclick="forwardFunction()" style="margin-top: 20px;">Go next Page</button>
+
     <script>
-        console.log('hello!')
-      fetch('https://reqres.in/api/users').then(res => console.log(res));
-      
-      fetch('https://reqres.in/api/users').then(res =>{
-        if(res.ok){
-            console.log('SUCCESS')
-        }else{
-            console.log('NOT SUCCESS')
+            console.log('hello!')
+        fetch('https://reqres.in/api/users').then(res => console.log(res));
+        
+        fetch('https://reqres.in/api/users').then(res =>{
+            if(res.ok){
+                console.log('SUCCESS')
+            }else{
+                console.log('NOT SUCCESS')
+            } 
+            res.json()
+            .then(data => console.log(data))
+            })
+        .catch(error => console.log('ERROR'))
+        
+        //TO READ DATA FROM A SERVER OR POST DATA TO A SERVER WE USE OPTION METHOD
+        fetch('https://reqres.in/api/users', {
+            method: 'POST',
+            headers:{
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: 'user 1'
+            })
+        }).then(res =>{
+                return  res.json()
+        })
+        .then(data => console.log('----> option method', data))
+        
+        .catch(error => console.log('-----> option method', 'ERROR'))
+
+        
+        //Browser APIs
+        //Get the latitude and longitude of the user's position:
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+            try {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } catch {
+            x.innerHTML = err;
+        }
+        }
+
+        function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+        }
+
+        //web forms APIs
+        //The checkValidity() Method
+        function myFunction() {
+            const inpObj = document.getElementById("id1");
+            if (!inpObj.checkValidity()) {
+              document.getElementById("demo1").innerHTML = inpObj.validationMessage;
+            } else {
+              document.getElementById("demo1").innerHTML = "Input OK";
+            } 
         } 
-        res.json()
-        .then(data => console.log(data))
-        })
-      .catch(error => console.log('ERROR'))
-      
-      //TO READ DATA FROM A SERVER OR POST DATA TO A SERVER WE USE OPTION METHOD
-      fetch('https://reqres.in/api/users', {
-        method: 'POST',
-        headers:{
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: 'user 1'
-        })
-      }).then(res =>{
-            return  res.json()
-      })
-     .then(data => console.log('----> option method', data))
-      
-      .catch(error => console.log('-----> option method', 'ERROR'))
-      
+
+        //The rangeOverflow Property test:
+        function ourFunction() {
+            let text;
+            if (document.getElementById("id2").validity.rangeOverflow) {
+              text = "Value too large";
+            } else {
+              text = "Input OK";
+            } 
+            document.getElementById("demo2").innerHTML = text;
+        }
+        
+        //The rangeUnderflow Property test:
+            function underFunction() {
+                let text;
+                if (document.getElementById("id3").validity.rangeUnderflow) {
+                  text = "Value too small";
+                } else {
+                  text = "Input OK";
+                } 
+                document.getElementById("demo3").innerHTML = text;
+            }
+
+            //Web History APIs
+            //The History back() Method:
+            function backFunction() {
+                window.history.back();
+            }
+
+            //The History go() Method:
+            function goFunction() {
+                window.history.go(-2);
+            }
+            //The History forward() Method:
+            function forwardFunction() {
+                window.history.forward();
+            }
     </script>
 </body>
 </html>
