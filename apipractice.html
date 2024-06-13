@@ -45,6 +45,17 @@
     <button onclick="goFunction()" style="margin-top: 20px;">Go Back 2 Pages</button><br>
     <button onclick="forwardFunction()" style="margin-top: 20px;">Go next Page</button>
 
+    <h2>Web Storage APIs</h2>
+    <div id="demo4"></div>
+    <div id="demo5"></div>
+    <div id="demo6"></div>
+
+    <h2>JavaScript Web Workers API</h2>
+    <p>Count numbers: <output id="result"></output></p>
+    <button onclick="startWorker()">Start Worker</button> 
+    <button onclick="stopWorker()">Stop Worker</button>
+
+
     <script>
             console.log('hello!')
         fetch('https://reqres.in/api/users').then(res => console.log(res));
@@ -141,6 +152,52 @@
             function forwardFunction() {
                 window.history.forward();
             }
+
+            //Web Storage API(syntax used for storing or retriving data in the browser)
+            localStorage.setItem("name","Azuka Gidoen");
+            document.getElementById("demo4").innerHTML = localStorage.getItem("name");
+
+            //The localStorage Object(allows to store, read, add, modify and delete data item from that domain)
+
+            //The setItem() Method[The localStorage.setItem() method stores a data item in a storage.It takes a name and a value as parameters]
+
+            //The getItem() Method[The localStorage.getItem() method retrieves a data item from the storage.It takes a name as parameter]
+
+           // The sessionStorage Object(The sessionStorage object is identical to the localStorage object.The difference is that the sessionStorage object stores data for one session.The data is deleted when the browser is closed.)
+
+           sessionStorage.setItem("name","Azuka Gidoen");
+           document.getElementById("demo5").innerHTML = sessionStorage.getItem("name");
+           
+           localStorage.setItem("name","Azuka Gidoen");
+           document.getElementById("demo6").innerHTML = localStorage.removeItem("name");
+
+           let w;
+
+           function startWorker() {
+               if(typeof(w) == "undefined") {
+                   w = new Worker("web_worker.js");
+               }
+               w.onmessage = function(event) {
+                   document.getElementById("result").innerHTML = event.data;
+               };
+           }
+   
+               function stopWorker() { 
+               w.terminate();
+               w = undefined;
+           }
+        //console.log(startWorker())
+
+        //Check Web Worker Support
+        if (typeof(Worker) !== "undefined") {
+            'Web worker support!';
+          } else {
+            'Sorry! No Web Worker support..';
+          }
+        //console.log('----> type of ', typeof(Worker))
+        
+
     </script>
+    <script src="./web_worker.js"></script>
 </body>
 </html>
