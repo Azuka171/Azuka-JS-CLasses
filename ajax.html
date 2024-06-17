@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Practice</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+    <div id="demo1">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="onreadyStateDoc()">Change Content</button>
+    </div>
+    <h2>GET method</h2>
+    <button type="button" onclick="getDoc()">Request data</button>
+    <p id="demo2"></p>
+    <h2>POST method</h2>
+    <button type="button" onclick="postDoc()">Request data</button>
+    <p id="demo3"></p>
+    <h3>Ajax Response</h3>
+    <p id="demo4"></p>
+    <h2>get AllResponse header</h2>
+    <p>The getAllResponseHeaders() function returns all the header information of a resource, like length, server-type, content-type, last-modified, etc:</p>
+
+    <pre id="demo5"></pre>
+    <p>Last modified: <span id="demo6"></span></p>
+    
+    <h2>Ajax XML file</h2>
+
+    <button type="button" onclick="xmlFile()">Get my CD collection</button>
+    <br><br>
+    <table id="demo7"></table>
+    <style>
+      table,th,td {
+        border : 1px solid black;
+        border-collapse: collapse;
+      }
+      th,td {
+        padding: 5px;
+      }
+      </style>
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("demo").innerHTML =
+              this.responseText;
+            }
+            xhttp.open("GET", "fetch_info.txt" , false);//synchronous 
+            xhttp.send();
+        }
+
+        function onreadyStateDoc() {
+            const stateHttp = new XMLHttpRequest();
+            stateHttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo1").innerHTML =
+                this.responseText;
+              } 
+            };
+            stateHttp.open("GET", "fetch_info.txt" , true);
+            stateHttp.send();
+           // console.log(onreadyStateDoc());
+        }
+            //GET Method
+        function getDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("demo2").innerHTML = this.responseText;
+            }
+            //xhttp.open("GET", "dhttps://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_get2" + Math.random());
+           xhttp.open("GET", "https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_get2?fname=Henry&lname=Ford");//send information with 
+           
+           //GET method
+            xhttp.send();
+        }
+
+          //POST method
+          function postDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("demo3").innerHTML = this.responseText;
+            }
+            xhttp.open("POST", "https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_get2");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("fname=Henry&lname=Ford");
+        }
+
+        //AJAX - Server Response
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = 
+        function() {
+          const xmlDoc = this.responseXML;
+          const x = xmlDoc.getElementsByTagName("ARTIST");
+          let txt = "";
+          for (let i = 0; i < x.length; i++) {
+            txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+          }
+          document.getElementById("demo4").innerHTML = txt;
+        }
+        xhttp.open("GET", "https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_responsexml");
+        xhttp.send();
+
+        //get AllResponse header
+        //const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          document.getElementById("demo5").innerHTML =
+          this.getAllResponseHeaders();
+        }
+        xhttp.open("GET", "fetch_info.txt");
+        xhttp.send();
+
+      //get Last modification Response
+        //const xhttp = new XMLHttpRequest();
+        xhttp.onload = 
+        function() {
+            document.getElementById("demo6").innerHTML =
+            this.getResponseHeader("Last-Modified");
+        }
+        xhttp.open("GET", "fetch_info.txt");
+        xhttp.send();
+
+        //To get Ajax XML file
+        function xmlFile() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            myFunction(this);
+          }
+          xhttp.open("GET", "cd_catalog.xml");
+          xhttp.send();
+        }
+        function myFunction(xml) {
+          const xmlDoc = xml.responseXML;
+          const x = xmlDoc.getElementsByTagName("CD");
+          let table="<tr><th>Artist</th><th>Title</th></tr>";
+          for (let i = 0; i <x.length; i++) { 
+            table += "<tr><td>" +
+            x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+          }
+          document.getElementById("demo7").innerHTML = table;
+        }
+        //console.log(xmlFile())
+    </script>
+</body>
+</html>

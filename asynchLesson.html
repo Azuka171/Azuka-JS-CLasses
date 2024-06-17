@@ -177,7 +177,7 @@
           }
         function getFile(myCallback) {
             let req = new XMLHttpRequest();
-            req.open('GET', "mycar.html");
+            req.open('GET', "https://www.w3schools.com/js/js_async.asp");
             req.onload = function() {
               if (req.status == 200) {
                 myCallback(this.responseText);
@@ -195,10 +195,11 @@
           function ourDisplayer(some) {
             document.getElementById("demo8").innerHTML = some;
         }
-          let yourPromise = new Promise(function(myResolve, myReject) {
+        let yourPromise = new Promise(
+          function(myResolve, myReject) {
             let req = new XMLHttpRequest();
-            req.open('GET', "mycar.html");
-            req.onload = function() {
+            req.open('GET', "https://www.w3schools.com/js/js_async.asp");
+            req.onload = function() {s
               if (req.status == 200) {
                 myResolve(req.response);
               } else {
@@ -206,7 +207,8 @@
               }
             };
             req.send();
-        });
+          }
+        );
           
           yourPromise.then(
             function(value) {ourDisplayer(value);},
@@ -249,7 +251,7 @@
           async function getMyFile() {
             let myPromise = new Promise(function(resolve) {
               let req = new XMLHttpRequest();
-              req.open('GET', "mycar.html");
+              req.open('GET', "https://www.w3uschools.com/js/js_async.asp");
               req.onload = function() {
                 if (req.status == 200) {
                   resolve(req.response);

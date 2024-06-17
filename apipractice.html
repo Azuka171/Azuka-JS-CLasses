@@ -54,7 +54,9 @@
     <p>Count numbers: <output id="result"></output></p>
     <button onclick="startWorker()">Start Worker</button> 
     <button onclick="stopWorker()">Stop Worker</button>
-
+    
+    <h2>Fetch API</h2>
+    <p id="demo7">Fetch a file to change this text.</p>
 
     <script>
             console.log('hello!')
@@ -89,21 +91,41 @@
 
         
         //Browser APIs
-        //Get the latitude and longitude of the user's position:
+        //Get the latitude and longitude of the user's position using Geolocation:
         const x = document.getElementById("demo");
 
         function getLocation() {
-            try {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } catch {
-            x.innerHTML = err;
-        }
+                try {
+                //navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.watchPosition(showPosition); //Returns the current position of the user and continues to return updated position
+            } catch {
+                x.innerHTML = err;
+            }
         }
 
         function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude;
+            x.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
         }
+        //Handling Errors and Rejections
+        function showError(error) {
+            switch(error.code) {
+              case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+              case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+              case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+              case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+            }
+        }
+        
+        
 
         //web forms APIs
         //The checkValidity() Method
@@ -117,85 +139,113 @@
         } 
 
         //The rangeOverflow Property test:
-        function ourFunction() {
-            let text;
-            if (document.getElementById("id2").validity.rangeOverflow) {
-              text = "Value too large";
-            } else {
-              text = "Input OK";
-            } 
-            document.getElementById("demo2").innerHTML = text;
-        }
-        
-        //The rangeUnderflow Property test:
-            function underFunction() {
+            function ourFunction() {
                 let text;
-                if (document.getElementById("id3").validity.rangeUnderflow) {
-                  text = "Value too small";
+                if (document.getElementById("id2").validity.rangeOverflow) {
+                text = "Value too large";
                 } else {
-                  text = "Input OK";
+                text = "Input OK";
                 } 
-                document.getElementById("demo3").innerHTML = text;
+                document.getElementById("demo2").innerHTML = text;
             }
+            
+            //The rangeUnderflow Property test:
+                function underFunction() {
+                    let text;
+                    if (document.getElementById("id3").validity.rangeUnderflow) {
+                    text = "Value too small";
+                    } else {
+                    text = "Input OK";
+                    } 
+                    document.getElementById("demo3").innerHTML = text;
+                }
 
-            //Web History APIs
-            //The History back() Method:
-            function backFunction() {
-                window.history.back();
-            }
+                //Web History APIs
+                //The History back() Method:
+                function backFunction() {
+                    window.history.back();
+                }
 
-            //The History go() Method:
-            function goFunction() {
-                window.history.go(-2);
-            }
-            //The History forward() Method:
-            function forwardFunction() {
-                window.history.forward();
-            }
+                //The History go() Method:
+                function goFunction() {
+                    window.history.go(-2);
+                }
+                //The History forward() Method:
+                function forwardFunction() {
+                    window.history.forward();
+                }
 
-            //Web Storage API(syntax used for storing or retriving data in the browser)
+                //Web Storage API(syntax used for storing or retriving data in the browser)
+                localStorage.setItem("name","Azuka Gidoen");
+                document.getElementById("demo4").innerHTML = localStorage.getItem("name");
+
+                //The localStorage Object(allows to store, read, add, modify and delete data item from that domain)
+
+                //The setItem() Method[The localStorage.setItem() method stores a data item in a storage.It takes a name and a value as parameters]
+
+                //The getItem() Method[The localStorage.getItem() method retrieves a data item from the storage.It takes a name as parameter]
+
+            // The sessionStorage Object(The sessionStorage object is identical to the localStorage object.The difference is that the sessionStorage object stores data for one session.The data is deleted when the browser is closed.)
+
+            sessionStorage.setItem("name","Azuka Gidoen");
+            document.getElementById("demo5").innerHTML = sessionStorage.getItem("name");
+            
             localStorage.setItem("name","Azuka Gidoen");
-            document.getElementById("demo4").innerHTML = localStorage.getItem("name");
+            document.getElementById("demo6").innerHTML = localStorage.removeItem("name");
 
-            //The localStorage Object(allows to store, read, add, modify and delete data item from that domain)
+            let w;
 
-            //The setItem() Method[The localStorage.setItem() method stores a data item in a storage.It takes a name and a value as parameters]
+            function startWorker() {
+                if(typeof(w) == "undefined") {
+                    w = new Worker("web_worker.js");
+                }
+                w.onmessage = function(event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            }
+    
+                function stopWorker() { 
+                w.terminate();
+                w = undefined;
+            }
+            //console.log(startWorker())
 
-            //The getItem() Method[The localStorage.getItem() method retrieves a data item from the storage.It takes a name as parameter]
+            //Check Web Worker Support
+            if (typeof(Worker) !== "undefined") {
+                'Web worker support!';
+            } else {
+                'Sorry! No Web Worker support..';
+            }
+            //console.log('----> type of ', typeof(Worker))
+            
+            //Fetch API Example 
+            //explain y it can not fetch the file
+            
+            //let file = "fetch_info.txt"
 
-           // The sessionStorage Object(The sessionStorage object is identical to the localStorage object.The difference is that the sessionStorage object stores data for one session.The data is deleted when the browser is closed.)
+            //fetch (file)
+        // .then(x => x.text())
+            //.then(y => document.getElementById("demo7").innerHTML = y);
+            
+            //Since Fetch is based on async and await, the example above might be easier to understand like this:
+            getText("fetch_info.txt");
 
-           sessionStorage.setItem("name","Azuka Gidoen");
-           document.getElementById("demo5").innerHTML = sessionStorage.getItem("name");
-           
-           localStorage.setItem("name","Azuka Gidoen");
-           document.getElementById("demo6").innerHTML = localStorage.removeItem("name");
+            async function getText(file) {
+                let x = await fetch(file);
+                let y = await x.text();
+                //document.getElementById("demo7").innerHTML = y;
+            }
+            
+            //Use understandable names instead of x and y:
+            getText("fetch_info.txt");
 
-           let w;
+            async function getText(file) {
+            let myObject = await fetch(file);
+            let myText = await myObject.text();
+            document.getElementById("demo7").innerHTML = myText;
+        }
 
-           function startWorker() {
-               if(typeof(w) == "undefined") {
-                   w = new Worker("web_worker.js");
-               }
-               w.onmessage = function(event) {
-                   document.getElementById("result").innerHTML = event.data;
-               };
-           }
-   
-               function stopWorker() { 
-               w.terminate();
-               w = undefined;
-           }
-        //console.log(startWorker())
 
-        //Check Web Worker Support
-        if (typeof(Worker) !== "undefined") {
-            'Web worker support!';
-          } else {
-            'Sorry! No Web Worker support..';
-          }
-        //console.log('----> type of ', typeof(Worker))
-        
 
     </script>
     <script src="./web_worker.js"></script>
