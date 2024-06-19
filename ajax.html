@@ -33,6 +33,41 @@
     <button type="button" onclick="xmlFile()">Get my CD collection</button>
     <br><br>
     <table id="demo7"></table>
+    <h2>Ajax PHP</h2>
+    <h3>Start typing a name in the input field below:</h3>
+
+    <p>Suggestions: <span id="txtHint"></span></p> 
+    <p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+    <h2>Ajax ASP</h2>
+    <h3>Start typing a name in the input field below:</h3>
+
+    <p>Suggestions: <span id="textHint"></span></p> 
+    <p>First name: <input type="text" id="txt2" onkeyup="showAspHint(this.value)"></p>
+
+    <h2>AJax database</h2>
+
+    <form action=""> 
+      <select name="customers" onchange="showCustomer(this.value)">
+        <option value="">Select a customer:</option>
+        <option value="ALFKI">Alfreds Futterkiste</option>
+        <option value="NORTS ">North/South</option>
+        <option value="WOLZA">Wolski Zajazd</option>
+      </select>
+    </form>
+    <br>
+    <div id="Hint">Customer info will be listed here...</div>
+    <h3>Ajax Application</h3>
+    <div id='showCD'></div>
+
+    <h3>Navigate Between CD</h3>
+    <div id='showCDs'></div><br>
+    <input type="button" onclick="previous()" value="<<">
+    <input type="button" onclick="next()" value=">>">
+    <h4>Show Album Information When Clicking On a CD</h4>
+    <p>Click on a CD to display album information.</p>
+    <p id='showCDx'></p>
+    <table id="demo8"></table>
+
     <style>
       table,th,td {
         border : 1px solid black;
@@ -136,17 +171,160 @@
         function myFunction(xml) {
           const xmlDoc = xml.responseXML;
           const x = xmlDoc.getElementsByTagName("CD");
-          let table="<tr><th>Artist</th><th>Title</th></tr>";
+          let table="<tr><th>Artist</th><th>Title</th><th>Year</th></tr>";
           for (let i = 0; i <x.length; i++) { 
             table += "<tr><td>" +
             x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
             "</td><td>" +
             x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td></td>"
+            x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
             "</td></tr>";
           }
           document.getElementById("demo7").innerHTML = table;
         }
         //console.log(xmlFile())
+
+        //Ajax PHP
+        function showHint(str) {
+          if (str.length == 0) { 
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+          }
+          const xhttps = new XMLHttpRequest();
+          xhttps.onload = function() {
+            document.getElementById("txtHint").innerHTML =
+            this.responseText;
+          }
+          xhttps.open("GET", "gethint.php?q="+str);
+          xhttps.send();   
+        }
+       // console.log(xhttps.open("GET", "gethint.php?q="+str))
+
+        //Ajax ASP
+        function showAspHint(str) {
+          if (str.length == 0) {
+            document.getElementById("textHint").innerHTML = "";
+            return;
+          } else {
+            const xmlhttps = new XMLHttpRequest();
+            xmlhttps.onload = 
+            function() {
+              document.getElementById("textHint").innerHTML = this.responseText;
+            }
+          xmlhttps.open("GET", "gethint.asp?q=" + str);
+          xmlhttps.send();
+          }
+        }
+
+        //Ajax database
+        function showCustomer(str) {
+          if (str == "") {
+            document.getElementById("Hint").innerHTML = "";
+            return;
+          }
+          const qhttp = new XMLHttpRequest();
+          qhttp.onload = function() {
+            document.getElementById("Hint").innerHTML = this.responseText;
+          }
+          qhttp.open("GET", "getcustomer.php?q="+str);
+          qhttp.send();
+        }
+
+        //Ajax Application 
+        //This example uses a function to display the first CD element in an HTML element with id="showCD":
+        const zhttp = new XMLHttpRequest();
+        zhttp.onload =
+         function() {
+          const xmlDoc = zhttp.responseXML; 
+          const cd = xmlDoc.getElementsByTagName("CD");
+          myFunction(cd, 0);
+        }
+        zhttp.open("GET", "cd_catalog.xml");
+        zhttp.send();
+
+        function myFunction(cd, i) {
+          document.getElementById("showCD").innerHTML =
+          "Artist: " +
+          cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "<br>Title: " +
+          cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "<br>Year: " + 
+          cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+        }
+
+        //Navigate Between the CDs
+        //To navigate between the CDs in the example above, create a next() and previous() function:
+        let i = 0;
+        let len;
+        let cd;
+
+        const phttp = new XMLHttpRequest();
+        phttp.onload = function() {
+          const xmlDoc = phttp.responseXML;
+          cd = xmlDoc.getElementsByTagName("CD");
+          len = cd.length;
+          displayCD(i);
+        }
+        phttp.open("GET", "cd_catalog.xml");
+        phttp.send();
+
+        function displayCD(i) {
+          document.getElementById("showCDs").innerHTML =
+          "Artist: " +
+          cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "<br>Title: " +
+          cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "<br>Year: " + 
+          cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+        }
+
+        function next() {
+          if (i < len-1) {
+            i++;
+            displayCD(i);
+          }
+        }
+
+        function previous() {
+          if (i > 0) {
+            i--;
+            displayCD(i);
+          }
+        }
+
+        //Show Album Information When Clicking On a CD
+        const ghttp = new XMLHttpRequest();
+        //let cd;
+        ghttp.onload = function() {
+        const xmlDoc = ghttp.responseXML; 
+        cd = xmlDoc.getElementsByTagName("CD");
+        loadCD();
+        }
+        ghttp.open("GET", "cd_catalog.xml");
+        ghttp.send();
+
+        function loadCD() {
+          let table="<tr><th>Artist</th><th>Title</th></tr>";
+          for (let i = 0; i < cd.length; i++) { 
+            table += "<tr onclick='displayCDInfo(" + i + ")'><td>";
+            table += cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+            table += "</td><td>";
+            table += cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+            table += "</td></tr>";
+          }
+          document.getElementById("demo8").innerHTML = table;
+        }
+
+        function displayCDInfo(i) {
+          document.getElementById("showCDx").innerHTML =
+          "Artist: " +
+          cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "<br>Title: " +
+          cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "<br>Year: " + 
+          cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+        }
     </script>
 </body>
 </html>

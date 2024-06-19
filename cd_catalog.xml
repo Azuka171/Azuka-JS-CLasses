@@ -182,7 +182,7 @@
         <COMPANY>Stax Records</COMPANY>
         <PRICE>7.90</PRICE>
         <YEAR>1968</YEAR>
-        </CD>
+    </CD>
     <CD>
         <TITLE>Picture book</TITLE>
         <ARTIST>Simply Red</ARTIST>
@@ -190,7 +190,7 @@
         <COMPANY>Elektra</COMPANY>
         <PRICE>7.20</PRICE>
         <YEAR>1985</YEAR>
-        </CD>
+    </CD>
     <CD>
         <TITLE>Red</TITLE>
         <ARTIST>The Communards</ARTIST>
@@ -198,7 +198,7 @@
         <COMPANY>London</COMPANY>
         <PRICE>7.80</PRICE>
         <YEAR>1987</YEAR>
-        </CD>
+    </CD>
     <CD>
         <TITLE>Unchain my heart</TITLE>
         <ARTIST>Joe Cocker</ARTIST>
