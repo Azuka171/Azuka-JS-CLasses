@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return preventSubmit(event)">
+        <label>EmployeeId</label><br>
+        <input type="text">
+        <button onclick="clockIn()">ClockIn</button>
+        <button onclick="clockOut()">ClockOut</button>
+        <div id="error"></div>
+    </form>
+    
+    <style>
+        
+    </style>
+    <script>
+        const accessGranted = confirm('do you want to give us your exact location');
+        //const officelat = 6.24425833;
+       // const officeLong = 6.58943;
+        const officelat = 4.8472226 ;
+        const officeLong = 6.974604;
+        const lat_dif = 0.00105533;
+        const lon_dif = 0.000033;
+        const max_lat = officelat + lat_dif
+        const min_lat = officelat - lat_dif
+        const max_lon = officeLong + lon_dif
+        const min_lon = officeLong - lon_dif
+        let userLat = null;
+        let userLong = null;
+        const x = document.getElementById('error');
+        
+        function clockIn(){
+            if(accessGranted){
+                if (navigator.geolocation) {
+                   navigator.geolocation.getCurrentPosition(updatePosition);
+                } else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+        }
+        function clockOut(){
+            
+            //console.log('clockout active--->')
+
+        }
+        function preventSubmit(event){
+            event.preventDefault();
+        }
+        function updatePosition(position) {
+           // x.innerHTML = "Latitude: " + position.coords.latitude + 
+           // "<br>Longitude: " + position.coords.longitude;
+            userLong = position.coords.longitude;
+            userLat = position.coords.latitude;
+            console.log(userLat, userLong)
+            console.log(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon)
+            if(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon){
+              x.innerHTML = 'you are within the office location you can clockIn'  
+            }else{
+                x.innerHTML = 'you are not within the office location you can not clockIn'
+            }
+        }
+          
+    </script>
+</body>
+</html

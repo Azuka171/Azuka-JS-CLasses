@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Practice</title>
+</head>
+<body>
+    <h2>Creating an Object from a JSON String</h2>
+
+    <p id="demo"></p>
+
+    <h2>Parsing a JSON Array.</h2>
+    <p>Data written as an JSON array will be parsed into a JavaScript array.</p>
+    <p id="demo1"></p>
+    <h2>Convert a string into a date object.</h2>
+    <p id="demo2"></p>
+    <h2>Convert a string into a date, using the reviver function:</h2>
+
+    <p id="demo3"></p>
+    <h2>Convert a string into a function.</h2>
+    <p id="demo4"></p>
+    <h2>Create a JSON string from a JavaScript object.</h2>
+    <p id="demo5"></p>
+
+    <h2>Create a JSON string from a JavaScript array.</h2>
+    <p id="demo6"></p>
+    <h2>Store and retrieve data from local storage.</h2>
+    <p id="demo7"></p>
+    <h2>JSON.stringify() converts date objects into strings.</h2>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    <h2>JSON.stringify() will remove any functions from an object.</h2>
+    <p id="demo10"></p>
+    <h2>JSON.stringify() will remove any functions from an object.</h2>
+    <p>Convert functions into strings to keep them in the JSON object.</p>
+    <p id="demo11"></p>
+    <h2>Creating an Object from a JSON Literal</h2>
+    <p id="demo12"></p>
+    <h2>Looping Object Properties</h2>
+    <p id="demo13"></p>
+    <h2>Using bracket notation to access the property value</h2>
+    <p id="demo14"></p>
+    <h2>Access Array Values</h2>
+    <p id="demo15"></p>
+    <h2>Looping an Array with For In </h2>
+    <p id="demo16"></p>
+    <h2>Looping an Array with For</h2>
+    <p id="demo17"></p>
+
+
+
+
+    <script>
+        //JSON parse() Object
+        const txt = '{"name":"John", "age":30, "city":"New York"}'
+        const obj = JSON.parse(txt);
+        document.getElementById("demo").innerHTML = obj.name + ", " + obj.age + " , " + obj.city;
+
+        //JSON Parse() Array
+        const text = '[ "Ford", "BMW", "Audi", "Fiat" ]';
+        const myArr = JSON.parse(text);
+        document.getElementById("demo1").innerHTML = myArr[3];
+
+        //JSON Parse() Date
+        const textx = '{"name":"John", "birth":"2024-06-19", "city":"New York"}';
+        const objx = JSON.parse(textx);
+        objx.birth = new Date(objx.birth);
+        document.getElementById("demo2").innerHTML = objx.name + ", " + objx.birth; 
+
+        //Convert a string into a date, using the reviver function:
+        const textz = '{"name":"John", "birth":"2024-06-14", "city":"New York"}';
+        const objz = JSON.parse(textz, function (key, value) {
+        if (key == "birth") {
+            return new Date(value);
+        } else {
+            return value;
+        }
+        });
+        document.getElementById("demo3").innerHTML = objz.name + ", " + objz.birth;
+
+        //Convert a string into a function:
+        const textxf = '{"name":"John", "age":"function() {return 30;}", "city":"New York"}';
+        const objxf = JSON.parse(textxf);
+        objxf.age = eval("(" + objxf.age + ")");
+        document.getElementById("demo4").innerHTML = objxf.name + ", " + objxf.age();
+
+        //Create a JSON string from a JavaScript object using JSON Stringify().
+        const objxs = {name: "John", age: 30, city: "New York"};
+        const myJSON = JSON.stringify(objxs);
+        document.getElementById("demo5").innerHTML = myJSON;
+
+        //Create a JSON string from a JavaScript array.
+        const arr = ["John", "Peter", "Sally", "Jane"];
+        const myJSONx = JSON.stringify(arr);
+        document.getElementById("demo6").innerHTML = myJSONx;
+
+        // Storing data:
+        const myObj = { name: "John", age: 31, city: "New York" };
+        const myJSONz = JSON.stringify(myObj);
+        localStorage.setItem("testJSON", myJSONz);
+
+        // Retrieving data:
+        let jsText = localStorage.getItem("testJSON");
+        let jsObj = JSON.parse(jsText);
+        document.getElementById("demo7").innerHTML = jsObj.name;
+
+        //JSON.stringify() converts date objects into strings.
+        const object = {name: "John", today: new Date(), city: "New York"};
+        const ourJSON = JSON.stringify(object);
+        document.getElementById("demo8").innerHTML = ourJSON;
+
+        //convert the string back into a date object at the receiver
+        const objectx = {name: "John", today: new Date(), city: "New York"};
+        const objectz = JSON.stringify(objectx, function (key, value) {
+            if (key == "today") {
+                return new Date(value);
+            } else {
+                return value;
+            }
+        });
+            document.getElementById("demo9").innerHTML = objectz.name + ", " + objectz.today;
+        //JSON.stringify() will remove any functions from an object.
+        const objr = {name: "John", age: function () {return 30;}, city: "New York"};
+        const myJSONr = JSON.stringify(objr);
+        document.getElementById("demo10").innerHTML = myJSONr;
+
+        //This can be omitted if you convert your functions into strings before running the JSON.stringify() function.
+        const objrf = {name: "John", age: function () {return 30;}, city: "New York"};
+        objrf.age = objrf.age.toString();
+        const myJSONrf = JSON.stringify(objrf);
+        document.getElementById("demo11").innerHTML = myJSONrf;
+
+        //JSON Object
+        //const ourObj = {"name":"John", "age":30, "car":null}; to do line 126
+        const ourObj = '{"name":"John", "age":30, "car":null}';
+        //document.getElementById("demo12").innerHTML = ourObj.name;
+        const ourJsonx = JSON.parse(ourObj)
+        //document.getElementById("demo12").innerHTML = ourJsonx.name; //you can access object value by using dot(.) notation 
+        document.getElementById("demo12").innerHTML = ourJsonx["name"]; // you can access object value by using bracket("[]") notation
+        //console.log(ourJsonx)
+
+        //Looping an Object
+        const myJSONLoop= '{"name":"John", "age":30, "car":null}';
+        const myObjLoop = JSON.parse(myJSONLoop);
+
+        let textLoop = "";
+        for (const x in myObjLoop) {
+        textLoop += x + ", ";
+        }
+        document.getElementById("demo13").innerHTML = textLoop;
+        //console.log(textLoop)
+
+        //Using bracket notation to access the property value
+        const loopbrk= '{"name":"John", "age":30, "car":null}';
+        const objbrk = JSON.parse(loopbrk);
+
+        let textbrk = "";
+        for (const x in objbrk) {
+        textbrk += objbrk[x] + ", ";
+        }
+        document.getElementById("demo14").innerHTML = textbrk;
+
+        //Objects can contain arrays:
+        const myArray= '{"name":"John", "age":30, "cars":["Ford", "BMW", "Fiat"]}';
+        const myArrObj = JSON.parse(myArray);
+
+        document.getElementById("demo15").innerHTML = myArrObj.cars[0];
+
+        //You can access array values by using a for in loop:
+        const ourArr = '{"name":"John", "age":30, "cars":["Ford", "BMW", "Fiat"]}';
+        const ourArrObj = JSON.parse(ourArr);
+
+        let textArr = "";
+        for (let i in ourArrObj.cars) {
+        textArr += ourArrObj.cars[i] + ", ";
+        }
+
+        document.getElementById("demo16").innerHTML = textArr;
+        
+        //You can access array values by using a for loop:
+        const arrLoop = '{"name":"John", "age":30, "cars":["Ford", "BMW", "Fiat"]}';
+        const arrObj = JSON.parse(arrLoop);
+
+        let arrText = "";
+        for (let i = 0; i < arrObj.cars.length; i++) {
+        arrText += arrObj.cars[i] + ", ";
+        }
+
+        document.getElementById("demo17").innerHTML = arrText;
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>JavaScript Window</h2>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <h3>The window.location object</h3>
+
+    <input type="button" value="Load new document" onclick="newDoc()">
+    <h2>The Navigator Object</h2>
+
+    <p>The cookieEnabled property returns true if cookies are enabled:</p>
+
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+
+
+    <script>
+        document.getElementById("demo").innerHTML =
+        "Browser inner window width: " + window.innerWidth + "px<br>" +
+        "Browser inner window height: " + window.innerHeight + "px";
+        document.getElementById("demo1").innerHTML = 
+        "Screen width is " + screen.width, "Screen height :" + screen.height;
+        document.getElementById("demo2").innerHTML =
+        "Page hostname is " + window.location.hostname;
+        document.getElementById("demo3").innerHTML =
+        "Page path is " + window.location.pathname;
+        document.getElementById("demo5").innerHTML =
+        "Page protocol is " + window.location.protocol;
+        document.getElementById("demo").innerHTML =
+        "Port number is " + window.location.port;
+        function newDoc() {
+            window.location.assign("https://www.w3schools.com")
+          }
+          document.getElementById("demo6").innerHTML =
+          "navigator.cookieEnabled is " + navigator.cookieEnabled;
+          document.getElementById("demo7").innerHTML =
+          //"navigator.appName is " + navigator.appName;
+         // "navigator.appName is " + navigator.appCodeName;
+          "navigator.product is " + navigator.product;
+          //document.getElementById("demo8").innerHTML = navigator.appVersion;
+          //document.getElementById("demo8").innerHTML = navigator.userAgent;
+         // document.getElementById("demo8").innerHTML = navigator.platform;
+         // document.getElementById("demo8").innerHTML = navigator.language;
+          //document.getElementById("demo8").innerHTML = navigator.onLine;
+          document.getElementById("demo8").innerHTML = navigator.javaEnabled();
+
+        alert("Hello\nHow are you?");
+        
+        if (confirm("Press a button!")) {
+        txt = "You pressed OK!";
+        } else {
+        txt = "You pressed Cancel!";
+        }
+        
+        let person = prompt("Please enter your name", "Harry Potter");
+        let text;
+        if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+        } else {
+        text = "Hello " + person + "! How are you today?";
+        }
+    </script>
+
+</body>
+</html>
