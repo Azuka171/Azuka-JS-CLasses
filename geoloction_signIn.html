@@ -12,7 +12,10 @@
         <button onclick="clockIn()">ClockIn</button>
         <button onclick="clockOut()">ClockOut</button>
         <div id="error"></div>
+        <div id="userLocation"></div>
+
     </form>
+
     
     <style>
         
@@ -32,6 +35,7 @@
         let userLat = null;
         let userLong = null;
         const x = document.getElementById('error');
+        const userLocation = document.getElementById('userLocation');
         
         function clockIn(){
             if(accessGranted){
@@ -55,7 +59,8 @@
            // "<br>Longitude: " + position.coords.longitude;
             userLong = position.coords.longitude;
             userLat = position.coords.latitude;
-            console.log(userLat, userLong)
+            console.log(userLat, userLong);
+            userLocation.innerText = 'your latitude:'+ userLat +' '+ 'your longitude:'+ userLong;
             console.log(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon)
             if(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon){
               x.innerHTML = 'you are within the office location you can clockIn'  
