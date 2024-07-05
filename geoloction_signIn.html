@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Employee Attendance</title>
 </head>
 <body>
     <form onsubmit="return preventSubmit(event)">
-        <label>EmployeeId</label><br>
+        <label>Employee ID</label><br>
         <input type="text">
-        <button onclick="clockIn()">ClockIn</button>
-        <button onclick="clockOut()">ClockOut</button>
+        <button onclick="clockIn()" class="btn-signIn">ClockIn</button>
+        <button onclick="clockOut()" class="btn-signOut">ClockOut</button>
         <div id="error"></div>
         <div id="userLocation"></div>
-
     </form>
 
     
     <style>
-        
+        label{
+            font-size: 10px;
+            font-style: italic;
+            color: blue;
+            text-transform:capitalize;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .btn-signIn{
+            background-color: rgb(8, 8, 106);
+            color: white;
+            border-radius: 5px;
+            width: fit-content;
+        }
+        .btn-signOut{
+            background-color: rgb(8, 8, 106);
+            color: white;
+            border-radius: 5px;
+            width: fit-content;
+        }
+        .correct{
+            color: rgb(3, 43, 3);
+            font-size: 8px;
+            font-style: italic;
+        }
+        .wrong{
+            color: red;
+            font-size: 8px;
+            font-style: italic;
+        }
+        #userLocation{
+            font-size: 8px;
+            font-style: italic;
+            color: green;
+        }
     </style>
     <script>
         const accessGranted = confirm('do you want to give us your exact location');
-        //const officelat = 6.24425833;
-       // const officeLong = 6.58943;
-        const officelat = 6.1854861 ;
-        const officeLong = 6.735517;
+        const officelat = 6.24425833;
+        const officeLong = 6.58943;
+        //const officelat = 6.1854861 ;
+        //const officeLong = 6.735517;
         const lat_dif = 0.00105533;
         const lon_dif = 0.000033;
         const max_lat = officelat + lat_dif
@@ -63,9 +96,11 @@
             userLocation.innerText = 'your latitude:'+ userLat +' '+ 'your longitude:'+ userLong;
             console.log(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon)
             if(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon){
-              x.innerHTML = 'you are within the office location you can clockIn'  
+              x.innerHTML = 'you are within the office location you can clockIn';
+              x.classList= 'correct';  
             }else{
-                x.innerHTML = 'you are not within the office location you can not clockIn'
+                x.innerHTML = 'you are not within the office location you can not clockIn';
+                x.classList ='wrong'
             }
         }
           
