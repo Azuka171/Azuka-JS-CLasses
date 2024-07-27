@@ -14,7 +14,7 @@
         <div id="error"></div>
         <div id="userLocation"></div>
     </form>
-
+    
     
     <style>
         label{
@@ -59,8 +59,8 @@
         const officeLong = 6.5961918;
         //const officelat = 6.1854861 ;
         //const officeLong = 6.735517;
-        const lat_dif = 0.00109933;
-        const lon_dif = 0.000099;
+        const lat_dif = 0.0009682;
+        const lon_dif = 0.0093421;
         const max_lat = officelat + lat_dif
         const min_lat = officelat - lat_dif
         const max_lon = officeLong + lon_dif
@@ -93,7 +93,7 @@
             userLong = position.coords.longitude;
             userLat = position.coords.latitude;
             console.log(userLat, userLong);
-            userLocation.innerText = 'your latitude:'+ userLat +' '+ 'your longitude:'+ userLong;
+            userLocation.innerText = 'your latitude:'+ userLat +' '+ 'your longitude:'+ userLong+`is the lat bigger than min? ${userLat >min_lat}<br> is the lat smaller than min? ${userLat <max_lat}`;
             console.log(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon)
             if(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon){
               x.innerHTML = 'you are within the office location you can clockIn';
