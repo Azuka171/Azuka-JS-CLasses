@@ -93,7 +93,7 @@
             userLong = position.coords.longitude;
             userLat = position.coords.latitude;
             console.log(userLat, userLong);
-            userLocation.innterHTML = 'your latitude:'+ userLat +' '+ 'your longitude:'+ userLong+`is the lat bigger than min? ${userLat >min_lat}<br> |min_lat-->${min_lat}<br> is the lat smaller than max? ${userLat <max_lat}<br> |max_lat-->${max_lat}`;
+            userLocation.innerHTML = 'your latitude:'+ userLat +' '+ 'your longitude:'+ userLong+`is the lat bigger than min? ${userLat >min_lat}<br> |min_lat-->${min_lat}<br> is the lat smaller than max? ${userLat <max_lat}<br> |max_lat-->${max_lat}`;
             console.log(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon)
             if(userLat >min_lat && userLat < max_lat && userLong >min_lon && userLong < max_lon){
               x.innerHTML = 'you are within the office location you can clockIn';
