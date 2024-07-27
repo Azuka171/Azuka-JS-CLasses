@@ -158,12 +158,18 @@
     <script>
         const apiKeys = "db7d692164d1d487eca39d5f5a68fec2";
         const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+        //"https://api.openweathermap.org/data/2.5/weather?units=metric&q=city,ny,usa";
+        //"https://api.openweathermap.org/data/2.5/weather?units=metriccity";
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
         const weatherIcon = document.querySelector(".weather-icon");
 
         async function checkweather(city){
-            const response = await fetch(apiUrl + city + `&appid=${apiKeys}`);
+            if(city.length == 0){
+                alert('city name is required')
+                return;
+            }
+            const response = await fetch(apiUrl +"&q="+ city + `&appid=${apiKeys}`);
             if(response.status == 404){
                 document.querySelector(".error").style.display = "block";
                 document.querySelector(".weather").style.display = "none";
@@ -191,7 +197,7 @@
                 else if(data.weather[0].main == "Mist"){
                     weatherIcon.src="./E-commerce Javascript Project/weather APP Image/mist icon.png";
                 }
-                document.querySelector(".waether").style.display = "block";
+                document.querySelector(".weather").style.display = "block";
                 document.querySelector(".error").style.display = "none";
 
             }
